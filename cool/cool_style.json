@@ -80,14 +80,14 @@
       "data": "https://ghimiresushma99.github.io/dump/world_boundary_poly.geojson"
     }
   },
-  "sprite": "https://ghimiresushma99.github.io/map-sprites/cool_pointed/osm-liberty",
+  "sprite": "https://ghimiresushma99.github.io/map_style_assets/cool/icon_assests/cool_svgs",
   "glyphs": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/fonts_lite/{fontstack}/{range}.pbf.gz",
   "layers": [
     {
       "id": "Base_Background",
       "type": "background",
       "minzoom": 0,
-      "maxzoom": 24,
+      "maxzoom": 8,
       "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {"background-color": "rgba(202, 236, 255, 1)"}
@@ -1874,7 +1874,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "class"]],
-          ["image", "others-1"]
+          ["image", "others"]
         ]
       },
       "paint": {
@@ -1955,7 +1955,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "class"]],
-          ["image", "others-1"]
+          ["image", "others"]
         ],
         "text-field": "{name}",
         "visibility": "visible",
@@ -2054,7 +2054,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "subclass"]],
-          ["image", "others-1"]
+          ["image", "others"]
         ],
         "icon-ignore-placement": false,
         "text-font": ["OpenSans"],
@@ -2089,7 +2089,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "subclass"]],
-          ["image", "others-1"]
+          ["image", "others"]
         ],
         "icon-ignore-placement": false,
         "text-font": ["OpenSans"],
@@ -2152,6 +2152,41 @@
         "text-halo-color": "hsl(0, 100%, 100%)",
         "text-color": "rgba(109, 202, 245, 1)",
         "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "Poi-helipad",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "aeroway",
+      "minzoom": 14,
+      "filter": ["all", ["==", "class", "helipad"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-optional": false,
+        "visibility": "visible",
+        "text-field": "Helipad",
+        "text-anchor": "top",
+        "text-size": 13,
+        "text-allow-overlap": false,
+        "icon-size": 0.8,
+        "icon-ignore-placement": false,
+        "text-font": ["OpenSans"],
+        "icon-optional": false,
+        "icon-padding": 20,
+        "text-max-width": 8,
+        "text-ignore-placement": false,
+        "text-offset": [0, 0.8],
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "class"]],
+          ["image", "others"]
+        ]
+      },
+      "paint": {
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-color": "rgba(113, 113, 139, 1)",
+        "text-halo-width": 1
       }
     },
     {
@@ -2539,38 +2574,6 @@
       }
     },
     {
-      "id": "Place-admin-centre",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "place",
-      "minzoom": 6,
-      "maxzoom": 12,
-      "filter": ["all", ["==", "name:en", "Kathmandu"]],
-      "layout": {
-        "symbol-avoid-edges": false,
-        "text-transform": "uppercase",
-        "text-optional": false,
-        "visibility": "none",
-        "text-max-width": 7,
-        "text-letter-spacing": 0.07,
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": {"stops": [[10, 12], [13, 17]]},
-        "text-anchor": "top",
-        "text-padding": {"stops": [[13, 10], [14, 5]]},
-        "text-font": ["OpenSans"]
-      },
-      "paint": {
-        "text-halo-color": "#4e4e4e",
-        "text-color": "#4e4e4e",
-        "text-halo-width": 0.5
-      }
-    },
-    {
       "id": "Place-province-label-boundary-copy",
       "type": "symbol",
       "source": "ebk000737",
@@ -2597,31 +2600,6 @@
       }
     },
     {
-      "id": "Place-province-label-boundary",
-      "type": "symbol",
-      "source": "ebk000737",
-      "minzoom": 4,
-      "maxzoom": 7,
-      "filter": ["all", ["==", "admin_level", 3]],
-      "layout": {
-        "text-transform": "none",
-        "icon-allow-overlap": false,
-        "text-line-height": 1,
-        "visibility": "none",
-        "text-letter-spacing": 0.07,
-        "text-field": "{name}",
-        "text-anchor": "top",
-        "text-size": {"stops": [[5, 8], [7, 15]]},
-        "text-allow-overlap": false,
-        "text-font": ["OpenSans"]
-      },
-      "paint": {
-        "text-halo-color": "#4e4e4e",
-        "text-color": "#4e4e4e",
-        "text-halo-width": 0.5
-      }
-    },
-    {
       "id": "HighwayLabel_one_way_arrow",
       "type": "symbol",
       "source": "qvez6ula1",
@@ -2634,7 +2612,7 @@
         "visibility": "visible",
         "symbol-z-order": "source",
         "symbol-placement": "line",
-        "icon-image": "oneway_11",
+        "icon-image": "oneway",
         "icon-ignore-placement": false,
         "text-font": [],
         "icon-padding": 20,
@@ -2959,24 +2937,10 @@
       }
     },
     {
-      "id": "PoiAirport_helipad",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "aeroway",
-      "minzoom": 15,
-      "filter": ["all", ["==", "class", "helipad"], ["==", "$type", "Polygon"]],
-      "layout": {
-        "visibility": "visible",
-        "text-size": 13,
-        "icon-image": "heliport_11"
-      },
-      "paint": {}
-    },
-    {
       "id": "PoiAirport_symbol",
       "type": "symbol",
       "source": "airport",
-      "minzoom": 11,
+      "minzoom": 10,
       "maxzoom": 24,
       "filter": ["all"],
       "layout": {
@@ -2984,57 +2948,26 @@
         "text-line-height": 1,
         "visibility": "visible",
         "text-field": {"stops": [[10, ""], [11.5, "{name}"]]},
-        "text-size": {"stops": [[13, 10], [17, 12]]},
+        "text-size": {"stops": [[13, 10], [14, 13]]},
         "text-anchor": "top",
         "text-allow-overlap": true,
-        "icon-size": {"stops": [[6, 0.3], [16, 1]]},
-        "icon-image": "airport_15",
+        "icon-size": {"stops": [[10, 0.5], [14, 0.8]]},
         "text-font": ["OpenSans"],
         "symbol-avoid-edges": true,
         "text-transform": "none",
         "text-max-width": 5,
         "text-offset": [0, 1],
-        "text-padding": 0
+        "text-padding": 0,
+        "icon-image": "airport"
       },
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
-        "text-color": "#4e4e4e",
+        "text-color": "rgba(51, 113, 184, 1)",
         "text-halo-width": 1
       }
     },
     {
-      "id": "Protected",
-      "type": "fill",
-      "source": "qvez6ula1",
-      "source-layer": "boundary",
-      "layout": {"visibility": "none"}
-    },
-    {
-      "id": "Province-fill",
-      "type": "fill",
-      "source": "Boundary-Province",
-      "maxzoom": 6.5,
-      "layout": {"visibility": "none"},
-      "paint": {
-        "fill-color": {
-          "default": "rgba(128, 128, 128, 1)",
-          "property": "name",
-          "type": "categorical",
-          "stops": [
-            ["Province 1", "rgba(100, 200, 150, 0.6)"],
-            ["Province 2", "rgba(144, 238, 160, 1)"],
-            ["Bagmati Province", "rgba(50, 205, 150, 0.6)"],
-            ["Gandaki Province", "rgba(100, 200, 150, 0.8)"],
-            ["Province 5", "rgba(144, 238, 180, 1)"],
-            ["Karnali Province", "rgba(50, 205, 150, 0.5)"],
-            ["Sudurpashchim Province", "rgba(50, 205, 150, 0.3)"]
-          ]
-        },
-        "fill-opacity": {"stops": [[0, 0.8], [4.5, 0.5], [5.5, 0]]}
-      }
-    },
-    {
-      "id": "Boundary-Country-copy",
+      "id": "Boundary-Country",
       "type": "line",
       "source": "Boundary-Country",
       "layout": {
@@ -3049,23 +2982,7 @@
       }
     },
     {
-      "id": "Boundary-Country",
-      "type": "line",
-      "source": "Boundary-Country",
-      "layout": {
-        "visibility": "none",
-        "line-join": "bevel",
-        "line-cap": "butt"
-      },
-      "paint": {
-        "line-width": {"stops": [[5, 2], [6, 4]]},
-        "line-opacity": 1,
-        "line-dasharray": [1, 2, 1],
-        "line-color": "rgba(57, 55, 55, 1)"
-      }
-    },
-    {
-      "id": "Boundary-Province-copy",
+      "id": "Boundary-Province",
       "type": "line",
       "source": "Boundary-Province",
       "minzoom": 4.5,
@@ -3080,24 +2997,6 @@
         "line-opacity": {"stops": [[4.5, 0.05], [4.9, 0.5], [7, 0.15]]},
         "line-dasharray": [1, 2, 1],
         "line-color": "rgba(43, 43, 110, 1)"
-      }
-    },
-    {
-      "id": "Boundary-Province",
-      "type": "line",
-      "source": "Boundary-Province",
-      "minzoom": 4.5,
-      "maxzoom": 24,
-      "layout": {
-        "visibility": "none",
-        "line-join": "bevel",
-        "line-cap": "butt"
-      },
-      "paint": {
-        "line-width": {"stops": [[6, 1.5], [7, 2]]},
-        "line-opacity": {"stops": [[4.5, 0.05], [4.9, 0.5], [7, 0.15]]},
-        "line-dasharray": [1, 2, 1],
-        "line-color": "rgba(57, 55, 55, 1)"
       }
     },
     {
@@ -3131,31 +3030,6 @@
         "text-halo-color": "#4e4e4e",
         "text-color": "#4e4e4e",
         "text-halo-width": 0.5
-      }
-    },
-    {
-      "id": "Poi-custom_icons_poi",
-      "type": "symbol",
-      "source": "custom_icons_poi",
-      "minzoom": 13,
-      "maxzoom": 24,
-      "layout": {
-        "text-line-height": 1.2,
-        "text-max-width": 8,
-        "visibility": "none",
-        "text-field": {"stops": [[6, ""], [14, "{name}"]]},
-        "text-offset": {"stops": [[6, [0, 1]], [17, [0, 3.5]], [22, [0, 5]]]},
-        "text-anchor": "center",
-        "icon-size": {"stops": [[8, 0.1], [22, 1]]},
-        "icon-image": "{icon}",
-        "text-font": ["OpenSans"]
-      },
-      "paint": {
-        "text-halo-color": "rgba(255, 255, 255, 1)",
-        "text-color": {
-          "stops": [[14, "rgba(47, 67, 26, 1)"], [16, "rgba(91, 105, 76, 1)"]]
-        },
-        "text-halo-width": 1
       }
     }
   ],

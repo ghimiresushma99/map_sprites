@@ -80,18 +80,9 @@
       "data": "https://ghimiresushma99.github.io/dump/world_boundary_poly.geojson"
     }
   },
-  "sprite": "https://ghimiresushma99.github.io/map-sprites/warm_pointed/osm-liberty",
+  "sprite": "https://ghimiresushma99.github.io/map_style_assets/warm/icon_assests/warm_svgs",
   "glyphs": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/fonts_lite/{fontstack}/{range}.pbf.gz",
   "layers": [
-    {
-      "id": "Base_Background-copy",
-      "type": "background",
-      "minzoom": 0,
-      "maxzoom": 8,
-      "filter": ["all"],
-      "layout": {"visibility": "visible"},
-      "paint": {"background-color": "rgba(243, 243, 245, 1)"}
-    },
     {
       "id": "Base_Background",
       "type": "background",
@@ -1909,7 +1900,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "class"]],
-          ["image", "others-1"]
+          ["image", "others"]
         ]
       },
       "paint": {
@@ -1990,7 +1981,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "class"]],
-          ["image", "others-1"]
+          ["image", "others"]
         ],
         "text-field": "{name}",
         "visibility": "visible",
@@ -2089,7 +2080,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "subclass"]],
-          ["image", "others-1"]
+          ["image", "other"]
         ],
         "icon-ignore-placement": false,
         "text-font": ["OpenSans"],
@@ -2124,7 +2115,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "subclass"]],
-          ["image", "others-1"]
+          ["image", "other"]
         ],
         "icon-ignore-placement": false,
         "text-font": ["OpenSans"],
@@ -2187,6 +2178,41 @@
         "text-halo-color": "hsl(0, 100%, 100%)",
         "text-color": "hsl(23, 57%, 24%)",
         "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "Poi-helipad",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "aeroway",
+      "minzoom": 14,
+      "filter": ["all", ["==", "class", "helipad"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-optional": false,
+        "visibility": "visible",
+        "text-field": "Helipad",
+        "text-anchor": "top",
+        "text-size": 13,
+        "text-allow-overlap": false,
+        "icon-size": 0.8,
+        "icon-ignore-placement": false,
+        "text-font": ["OpenSans"],
+        "icon-optional": false,
+        "icon-padding": 20,
+        "text-max-width": 8,
+        "text-ignore-placement": false,
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "class"]],
+          ["image", "others"]
+        ],
+        "text-offset": [0, 1]
+      },
+      "paint": {
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-color": "rgba(91, 106, 93, 1)",
+        "text-halo-width": 1
       }
     },
     {
@@ -2596,7 +2622,7 @@
         "visibility": "visible",
         "symbol-z-order": "source",
         "symbol-placement": "line",
-        "icon-image": "oneway_15",
+        "icon-image": "oneway",
         "icon-ignore-placement": false,
         "text-font": []
       }
@@ -2919,22 +2945,6 @@
       }
     },
     {
-      "id": "PoiAirport_helipad",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "aeroway",
-      "minzoom": 15,
-      "filter": ["all", ["==", "class", "helipad"], ["==", "$type", "Polygon"]],
-      "layout": {
-        "visibility": "visible",
-        "text-size": 13,
-        "icon-image": "others-1",
-        "text-font": ["OpenSans"],
-        "text-field": "#4e4e4e"
-      },
-      "paint": {}
-    },
-    {
       "id": "PoiAirport_symbol",
       "type": "symbol",
       "source": "airport",
@@ -2946,16 +2956,16 @@
         "text-line-height": 1,
         "visibility": "visible",
         "text-field": {"stops": [[10, ""], [11.5, "{name}"]]},
-        "text-size": {"stops": [[13, 10], [17, 12]]},
+        "text-size": {"stops": [[13, 10], [14, 13]]},
         "text-anchor": "top",
         "text-allow-overlap": true,
-        "icon-size": {"stops": [[6, 0.3], [16, 1]]},
+        "icon-size": {"stops": [[10, 0.5], [14, 0.8]]},
         "icon-image": "airport",
         "text-font": ["OpenSans"],
         "symbol-avoid-edges": true,
         "text-transform": "none",
         "text-max-width": 5,
-        "text-offset": [0, 1.5],
+        "text-offset": [0, 1],
         "text-padding": 0,
         "icon-allow-overlap": false,
         "icon-optional": false
@@ -2965,13 +2975,6 @@
         "text-color": "rgba(18, 85, 143, 1)",
         "text-halo-width": 1
       }
-    },
-    {
-      "id": "Protected",
-      "type": "fill",
-      "source": "qvez6ula1",
-      "source-layer": "boundary",
-      "layout": {"visibility": "visible"}
     },
     {
       "id": "Boundary-Country",

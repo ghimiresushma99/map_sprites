@@ -69,7 +69,7 @@
       "data": "https://ghimiresushma99.github.io/dump/world_boundary_poly.geojson"
     }
   },
-  "sprite": "https://ghimiresushma99.github.io/map-sprites//test_pointed/osm-liberty",
+  "sprite": "https://ghimiresushma99.github.io/map_style_assets//breeze/icon_assests/breeze_svgs",
   "glyphs": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/fonts_lite/{fontstack}/{range}.pbf.gz",
   "layers": [
     {
@@ -2075,7 +2075,7 @@
         "icon-optional": false,
         "icon-padding": 20,
         "text-max-width": 8,
-        "text-offset": [0, 0.8],
+        "text-offset": [0, 1],
         "text-ignore-placement": false
       },
       "paint": {
@@ -2099,7 +2099,7 @@
         "text-anchor": "top",
         "text-size": 13,
         "text-allow-overlap": false,
-        "icon-size": 0.7,
+        "icon-size": 0.8,
         "icon-image": [
           "coalesce",
           ["image", ["get", "subclass"]],
@@ -2110,7 +2110,7 @@
         "icon-optional": false,
         "icon-padding": 20,
         "text-max-width": 8,
-        "text-offset": [0, 0.8],
+        "text-offset": [0, 1],
         "text-ignore-placement": false
       },
       "paint": {
@@ -2136,7 +2136,8 @@
         "symbol-placement": "point",
         "icon-image": "{class}",
         "text-font": ["OpenSans"],
-        "icon-padding": 20
+        "icon-padding": 20,
+        "text-max-width": 8
       },
       "paint": {
         "text-halo-color": "hsl(0, 100%, 100%)",
@@ -2161,12 +2162,48 @@
         "symbol-placement": "point",
         "icon-image": "{class}",
         "text-font": ["OpenSans"],
-        "icon-padding": 20
+        "icon-padding": 20,
+        "text-max-width": 8
       },
       "paint": {
         "text-halo-color": "hsl(0, 100%, 100%)",
         "text-color": "rgba(112, 120, 129, 1)",
         "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "Poi-helipad",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "aeroway",
+      "minzoom": 14,
+      "filter": ["all", ["==", "class", "helipad"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-optional": false,
+        "visibility": "visible",
+        "text-field": "Helipad",
+        "text-anchor": "top",
+        "text-size": 13,
+        "text-allow-overlap": false,
+        "icon-size": 0.8,
+        "icon-ignore-placement": false,
+        "text-font": ["OpenSans"],
+        "icon-optional": false,
+        "icon-padding": 20,
+        "text-max-width": 8,
+        "text-ignore-placement": false,
+        "text-offset": [0, 0.8],
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "class"]],
+          ["image", "others"]
+        ]
+      },
+      "paint": {
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-color": "rgba(91, 106, 93, 1)",
+        "text-halo-width": 1
       }
     },
     {
@@ -2537,7 +2574,7 @@
         "visibility": "visible",
         "symbol-z-order": "source",
         "symbol-placement": "line",
-        "icon-image": "oneway_15",
+        "icon-image": "oneway",
         "icon-ignore-placement": false,
         "text-font": []
       }
@@ -2864,20 +2901,6 @@
       }
     },
     {
-      "id": "PoiAirport_helipad",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "aeroway",
-      "minzoom": 15,
-      "filter": ["all", ["==", "class", "helipad"], ["==", "$type", "Polygon"]],
-      "layout": {
-        "visibility": "visible",
-        "text-size": 13,
-        "icon-image": "others"
-      },
-      "paint": {}
-    },
-    {
       "id": "PoiAirport_symbol",
       "type": "symbol",
       "source": "airport",
@@ -2889,21 +2912,21 @@
         "text-line-height": 1,
         "visibility": "visible",
         "text-field": {"stops": [[10, ""], [11.5, "{name}"]]},
-        "text-size": {"stops": [[13, 10], [17, 12]]},
+        "text-size": {"stops": [[13, 10], [14, 13]]},
         "text-anchor": "top",
         "text-allow-overlap": true,
-        "icon-size": {"stops": [[6, 0.3], [16, 1]]},
-        "icon-image": "{class}",
+        "icon-size": {"stops": [[10, 0.5], [14, 0.8]]},
         "text-font": ["OpenSans"],
         "symbol-avoid-edges": true,
         "text-transform": "none",
         "text-max-width": 5,
         "text-offset": [0, 1],
-        "text-padding": 0
+        "text-padding": 0,
+        "icon-image": "airport"
       },
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
-        "text-color": "#4e4e4e",
+        "text-color": "rgba(18, 85, 143, 1)",
         "text-halo-width": 1
       }
     },

@@ -80,7 +80,7 @@
       "data": "https://ghimiresushma99.github.io/dump/world_boundary_poly.geojson"
     }
   },
-  "sprite": "https://ghimiresushma99.github.io/map-sprites/mono_pointed/osm-liberty",
+  "sprite": "https://ghimiresushma99.github.io/map_style_assets/mono/icon_assests/mono_svgs",
   "glyphs": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/fonts_lite/{fontstack}/{range}.pbf.gz",
   "layers": [
     {
@@ -90,28 +90,6 @@
       "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {"background-color": "rgba(172, 179, 179, 1)"}
-    },
-    {
-      "id": "Base_world_boundary_fill-copy",
-      "type": "fill",
-      "source": "World_Boundary",
-      "maxzoom": 24,
-      "layout": {"visibility": "none"},
-      "paint": {
-        "fill-color": {
-          "stops": [
-            [0, "rgba(255, 255, 255, 1)"],
-            [16, "rgba(200, 200, 200, 1)"]
-          ]
-        },
-        "fill-outline-color": {
-          "stops": [
-            [1, "rgba(98, 92, 92, 0)"],
-            [3, "rgba(98, 92, 92, 0.3)"],
-            [8, "rgba(98, 92, 92, 0)"]
-          ]
-        }
-      }
     },
     {
       "id": "Base_world_boundary_fill",
@@ -137,15 +115,15 @@
       }
     },
     {
-      "id": "Base-Province-fill",
+      "id": "Base_Boundary-fill_Country",
       "type": "fill",
-      "source": "Boundary-Province",
-      "minzoom": 3,
-      "maxzoom": 6.5,
+      "source": "Boundary-Country",
+      "minzoom": 0,
+      "maxzoom": 8,
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(187, 184, 184, 1)",
-        "fill-opacity": {"stops": [[0, 0.8], [4.5, 0.5], [5.5, 0.3]]}
+        "fill-opacity": {"stops": [[7, 0.5], [8, 0]]}
       }
     },
     {
@@ -2364,7 +2342,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "class"]],
-          ["image", "others-1"]
+          ["image", "others"]
         ],
         "text-field": "{name}",
         "visibility": "visible",
@@ -2474,7 +2452,7 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "class"]],
-          ["image", "others-1"]
+          ["image", "others"]
         ],
         "text-padding": 30
       },
@@ -2555,10 +2533,10 @@
         "text-size": 13,
         "icon-size": 0.8,
         "symbol-placement": "point",
-        "icon-image": "peak_11",
         "text-font": ["OpenSans"],
         "icon-padding": 20,
-        "text-max-width": 8
+        "text-max-width": 8,
+        "icon-image": "{class}"
       },
       "paint": {
         "text-halo-color": "rgba(223, 223, 223, 1)",
@@ -2581,7 +2559,7 @@
         "text-size": 13,
         "icon-size": 0.8,
         "symbol-placement": "point",
-        "icon-image": "peak_11",
+        "icon-image": "{class}",
         "text-font": ["OpenSans"],
         "icon-padding": 20,
         "text-max-width": 8
@@ -2589,6 +2567,41 @@
       "paint": {
         "text-halo-color": "rgba(223, 223, 223, 1)",
         "text-color": "rgba(119, 113, 113, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Poi-helipad",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "aeroway",
+      "minzoom": 14,
+      "filter": ["all", ["==", "class", "helipad"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-optional": false,
+        "visibility": "visible",
+        "text-field": "Helipad",
+        "text-anchor": "top",
+        "text-size": 13,
+        "text-allow-overlap": false,
+        "icon-size": 0.8,
+        "icon-ignore-placement": false,
+        "text-font": ["OpenSans"],
+        "icon-optional": false,
+        "icon-padding": 20,
+        "text-max-width": 8,
+        "text-ignore-placement": false,
+        "text-offset": [0, 1],
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "class"]],
+          ["image", "others"]
+        ]
+      },
+      "paint": {
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-color": "rgba(70, 71, 71, 1)",
         "text-halo-width": 1
       }
     },
@@ -3017,7 +3030,7 @@
         "visibility": "visible",
         "symbol-z-order": "source",
         "symbol-placement": "line",
-        "icon-image": "oneway_15",
+        "icon-image": "oneway",
         "icon-ignore-placement": false,
         "text-font": []
       }
@@ -3340,20 +3353,6 @@
       }
     },
     {
-      "id": "PoiAirport_helipad",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "aeroway",
-      "minzoom": 15,
-      "filter": ["all", ["==", "class", "helipad"], ["==", "$type", "Polygon"]],
-      "layout": {
-        "visibility": "visible",
-        "text-size": 13,
-        "icon-image": "others-1"
-      },
-      "paint": {}
-    },
-    {
       "id": "PoiAirport_symbol",
       "type": "symbol",
       "source": "airport",
@@ -3365,10 +3364,10 @@
         "text-line-height": 1,
         "visibility": "visible",
         "text-field": {"stops": [[10, ""], [11.5, "{name}"]]},
-        "text-size": {"stops": [[13, 10], [17, 12]]},
+        "text-size": {"stops": [[13, 10], [14, 13]]},
         "text-anchor": "top",
         "text-allow-overlap": true,
-        "icon-size": {"stops": [[6, 0.3], [16, 1]]},
+        "icon-size": {"stops": [[10, 0.5], [14, 0.8]]},
         "icon-image": "airport",
         "text-font": ["OpenSans"],
         "symbol-avoid-edges": true,
@@ -3382,13 +3381,6 @@
         "text-halo-width": 1,
         "text-halo-color": "rgba(226, 226, 226, 1)"
       }
-    },
-    {
-      "id": "Protected",
-      "type": "fill",
-      "source": "qvez6ula1",
-      "source-layer": "boundary",
-      "layout": {"visibility": "visible"}
     },
     {
       "id": "Place-country-label",
