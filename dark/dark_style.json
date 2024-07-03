@@ -30,14 +30,6 @@
       "data": "https://tileboundaries.baato.io/admin_boundary/ProtectedPoints.json",
       "type": "geojson"
     },
-    "hillshade": {
-      "tiles": [
-        "https://api.maptiler.com/tiles/terrain-rgb-v2/{z}/{x}/{y}.webp?key=pob0pKx3PYvOrERJeY1k"
-      ],
-      "maxzoom": 12,
-      "type": "raster-dem",
-      "minzoom": 7
-    },
     "qvez6ula1": {
       "tiles": [
         "https://api.baato.io/api/v1/maps/{z}/{x}/{y}.pbf?key=bpk.BRHlchztievq4D9ElWx1RzqlREGfCooGXqzzi-cxTNzU"
@@ -58,14 +50,6 @@
     "ebk000737": {
       "data": "https://tileboundaries.baato.io/admin_boundary/AdminCenters.json",
       "type": "geojson"
-    },
-    "contours": {
-      "tiles": [
-        "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/outdoor/contour/{z}/{x}/{y}.pbf.gz"
-      ],
-      "maxZoom": 14,
-      "minZoom": 0,
-      "type": "vector"
     },
     "airport": {
       "data": "https://tileboundaries.baato.io/admin_boundary/Airport.json",
@@ -94,7 +78,7 @@
       "maxzoom": 14
     }
   },
-  "sprite": "https://arunbhomi.github.io/fifth//fifth",
+  "sprite": "https://ghimiresushma99.github.io/map_style_assets/dark/icon_assests/dark_svgs",
   "glyphs": "https://api.baato.io/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
@@ -1128,7 +1112,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -1158,7 +1142,7 @@
       "filter": ["all", ["==", "$type", "Polygon"]],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-max-width": 8,
         "text-field": [
           "case",
@@ -1322,7 +1306,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -1489,7 +1473,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -1538,7 +1522,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -1588,7 +1572,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -1654,7 +1638,7 @@
         "icon-rotation-alignment": "auto",
         "text-optional": false,
         "icon-allow-overlap": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -1728,7 +1712,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-max-width": 8,
         "text-field": "{name}",
         "text-offset": [0, 0.8],
@@ -1753,7 +1737,7 @@
       "filter": ["all", ["in", "class", "lodging"]],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -1784,7 +1768,7 @@
       "filter": ["any", ["in", "class", "lodging"]],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -1811,7 +1795,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -1846,7 +1830,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -1889,7 +1873,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -1937,7 +1921,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -1966,7 +1950,7 @@
       "filter": ["all", ["in", "class", "office", "embassy"]],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -1997,7 +1981,7 @@
       "filter": ["any", ["in", "class", "office", "embassy"]],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -2036,7 +2020,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -2079,7 +2063,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -2126,7 +2110,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -2178,7 +2162,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -2205,7 +2189,7 @@
       "layout": {
         "symbol-avoid-edges": false,
         "text-optional": true,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": {"stops": [[0, ""], [16, "{name:latin}"]]},
         "text-offset": [0, 0.8],
         "text-size": 13,
@@ -2229,7 +2213,7 @@
       "filter": ["all", ["in", "class", "fuel", "charging_station"]],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -2260,7 +2244,7 @@
       "filter": ["any", ["in", "class", "fuel", "charging_station"]],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -2287,7 +2271,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -2322,7 +2306,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-anchor": "top",
         "text-size": 13,
@@ -2351,7 +2335,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -2384,7 +2368,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-anchor": "top",
         "text-size": 13,
@@ -2413,7 +2397,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -2446,7 +2430,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -2494,7 +2478,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -2549,7 +2533,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -2578,7 +2562,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": [
           "case",
           ["has", "name:en"],
@@ -2610,7 +2594,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name}",
         "text-size": 13,
         "text-anchor": "top",
@@ -2647,7 +2631,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-max-width": 8,
         "text-field": [
           "case",
@@ -2688,7 +2672,7 @@
       ],
       "layout": {
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-max-width": 8,
         "text-field": "{name}",
         "text-offset": [0, 0.8],
@@ -2714,7 +2698,7 @@
       "layout": {
         "symbol-avoid-edges": false,
         "text-optional": true,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": {"stops": [[0, ""], [16, "{name:latin}"]]},
         "text-offset": [0, 1.8],
         "text-size": 13,
@@ -2728,6 +2712,167 @@
       "paint": {"icon-opacity": 1, "text-color": "rgba(164, 148, 148, 1)"}
     },
     {
+      "id": "Poi-other-",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 17,
+      "filter": ["all", ["!has", "class"]],
+      "layout": {
+        "text-font": ["OpenSans"],
+        "text-size": 11,
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
+        "visibility": "visible",
+        "text-anchor": "top",
+        "icon-padding": 20,
+        "icon-optional": false,
+        "text-optional": false,
+        "text-max-width": 8,
+        "symbol-avoid-edges": false
+      },
+      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+    },
+    {
+      "id": "Poi-merging-main",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["!in", "class", "grass", "farmland", "residential", "wood"],
+        ["has", "class"]
+      ],
+      "layout": {
+        "icon-size": 0.8,
+        "text-font": ["OpenSans"],
+        "text-size": 13,
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
+        "visibility": "visible",
+        "text-anchor": "top",
+        "text-offset": [0, 1],
+        "icon-padding": 20,
+        "icon-optional": false,
+        "text-optional": false,
+        "text-max-width": 8,
+        "text-allow-overlap": false,
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "class"]],
+          ["image", "others"]
+        ]
+      },
+      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+    },
+    {
+      "id": "Poi-merging-plucker",
+      "type": "symbol",
+      "source": "baato_inhouse",
+      "source-layer": "pois",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["all", ["has", "class"], ["==", "$type", "Point"]],
+      "layout": {
+        "icon-size": 0.8,
+        "text-font": ["OpenSans"],
+        "text-size": 13,
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "class"]],
+          ["image", "others"]
+        ],
+        "text-field": "{name}",
+        "visibility": "visible",
+        "text-anchor": "top",
+        "text-offset": [0, 1],
+        "icon-padding": 20,
+        "icon-optional": false,
+        "text-optional": false,
+        "text-max-width": 8,
+        "text-allow-overlap": false
+      },
+      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+    },
+    {
+      "id": "Poi-religion-",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 13.3,
+      "filter": ["all", ["in", "class", "religion"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-optional": false,
+        "visibility": "visible",
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
+        "text-anchor": "top",
+        "text-size": 13,
+        "text-allow-overlap": false,
+        "icon-size": 0.8,
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "subclass"]],
+          ["image", "others"]
+        ],
+        "icon-ignore-placement": false,
+        "text-font": ["OpenSans"],
+        "icon-optional": false,
+        "icon-padding": 20,
+        "text-max-width": 8,
+        "text-offset": [0, 1],
+        "text-ignore-placement": false
+      },
+      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+    },
+    {
+      "id": "Poi-Plucker-religion-",
+      "type": "symbol",
+      "source": "baato_inhouse",
+      "source-layer": "pois",
+      "minzoom": 13.3,
+      "filter": ["any", ["in", "class", "religion"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-optional": false,
+        "visibility": "visible",
+        "text-field": "{name}",
+        "text-anchor": "top",
+        "text-size": 13,
+        "text-allow-overlap": false,
+        "icon-size": 0.8,
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "subclass"]],
+          ["image", "others"]
+        ],
+        "icon-ignore-placement": false,
+        "text-font": ["OpenSans"],
+        "icon-optional": false,
+        "icon-padding": 20,
+        "text-max-width": 8,
+        "text-offset": [0, 1],
+        "text-ignore-placement": false
+      },
+      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+    },
+    {
       "id": "Poi-mountain_peak",
       "type": "symbol",
       "source": "qvez6ula1",
@@ -2736,16 +2881,15 @@
       "filter": ["all", ["has", "ele"]],
       "layout": {
         "visibility": "visible",
-        "text-field": "{name:latin}{name:nonlatin} {ele} m",
-        "text-offset": [0, 0.8],
+        "text-field": "{name:latin}{name:nonlatin}",
+        "text-offset": [0, 1],
         "text-anchor": "top",
         "text-size": 13,
         "icon-size": 0.8,
         "symbol-placement": "point",
-        "icon-image": "peak_11",
         "text-font": ["OpenSans"],
         "icon-padding": 20,
-        "text-padding": 20
+        "icon-image": "{class}"
       },
       "paint": {"text-color": "rgba(164, 148, 148, 1)"}
     },
@@ -2758,15 +2902,14 @@
       "layout": {
         "visibility": "visible",
         "text-field": "{name:latin}{name:nonlatin}",
-        "text-offset": [0, 0.8],
+        "text-offset": [0, 1],
         "text-anchor": "top",
         "text-size": 13,
         "icon-size": 0.8,
         "symbol-placement": "point",
-        "icon-image": "peak_11",
         "text-font": ["OpenSans"],
         "icon-padding": 20,
-        "text-padding": 20
+        "icon-image": "{class}"
       },
       "paint": {"text-color": "rgba(164, 148, 148, 1)"}
     },
