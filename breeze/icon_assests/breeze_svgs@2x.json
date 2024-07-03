@@ -3,7 +3,7 @@
     "height": 68,
     "pixelRatio": 2,
     "width": 50,
-    "x": 152,
+    "x": 254,
     "y": 210
   },
   "art_gallery": {
@@ -14,39 +14,39 @@
     "y": 0
   },
   "atm": {
-    "height": 68,
+    "height": 70,
     "pixelRatio": 2,
-    "width": 48,
-    "x": 202,
-    "y": 210
+    "width": 50,
+    "x": 50,
+    "y": 0
   },
   "attraction": {
     "height": 68,
     "pixelRatio": 2,
     "width": 50,
-    "x": 250,
+    "x": 304,
     "y": 210
   },
   "bakery": {
     "height": 68,
     "pixelRatio": 2,
     "width": 48,
-    "x": 300,
-    "y": 210
+    "x": 352,
+    "y": 140
   },
   "bank": {
-    "height": 68,
+    "height": 70,
     "pixelRatio": 2,
-    "width": 48,
-    "x": 348,
-    "y": 210
+    "width": 50,
+    "x": 0,
+    "y": 70
   },
   "bar": {
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
     "x": 50,
-    "y": 0
+    "y": 70
   },
   "beer": {
     "height": 68,
@@ -59,8 +59,8 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 0,
-    "y": 70
+    "x": 100,
+    "y": 0
   },
   "bus": {
     "height": 68,
@@ -80,8 +80,8 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 50,
-    "y": 70
+    "x": 150,
+    "y": 0
   },
   "car": {
     "height": 68,
@@ -109,14 +109,14 @@
     "pixelRatio": 2,
     "width": 50,
     "x": 100,
-    "y": 0
+    "y": 70
   },
   "christian": {
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
     "x": 150,
-    "y": 0
+    "y": 70
   },
   "cinema": {
     "height": 68,
@@ -129,8 +129,8 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 100,
-    "y": 70
+    "x": 0,
+    "y": 140
   },
   "college": {
     "height": 68,
@@ -150,14 +150,14 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 150,
-    "y": 70
+    "x": 50,
+    "y": 140
   },
   "embassy": {
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 0,
+    "x": 100,
     "y": 140
   },
   "fast_food": {
@@ -178,8 +178,8 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 52,
-    "x": 50,
-    "y": 140
+    "x": 0,
+    "y": 210
   },
   "gate": {
     "height": 68,
@@ -199,14 +199,14 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 102,
+    "x": 150,
     "y": 140
   },
   "hindu": {
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 0,
+    "x": 52,
     "y": 210
   },
   "hospital": {
@@ -220,7 +220,7 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 52,
-    "x": 50,
+    "x": 102,
     "y": 210
   },
   "laundry": {
@@ -248,14 +248,14 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 102,
-    "y": 210
+    "x": 200,
+    "y": 0
   },
   "monument": {
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 200,
+    "x": 250,
     "y": 0
   },
   "museum": {
@@ -269,14 +269,14 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 250,
+    "x": 300,
     "y": 0
   },
   "office": {
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 300,
+    "x": 350,
     "y": 0
   },
   "oneway": {
@@ -304,8 +304,8 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 350,
-    "y": 0
+    "x": 200,
+    "y": 70
   },
   "peak": {
     "height": 68,
@@ -332,14 +332,14 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 200,
+    "x": 250,
     "y": 70
   },
   "police": {
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 250,
+    "x": 300,
     "y": 70
   },
   "post": {
@@ -360,28 +360,28 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 300,
+    "x": 350,
     "y": 70
   },
   "school": {
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 350,
-    "y": 70
+    "x": 200,
+    "y": 140
   },
   "shelter": {
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 152,
+    "x": 250,
     "y": 140
   },
   "shop": {
     "height": 70,
     "pixelRatio": 2,
     "width": 52,
-    "x": 202,
+    "x": 300,
     "y": 140
   },
   "sports": {
@@ -402,8 +402,8 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 254,
-    "y": 140
+    "x": 154,
+    "y": 210
   },
   "toilet": {
     "height": 68,
@@ -423,7 +423,7 @@
     "height": 70,
     "pixelRatio": 2,
     "width": 50,
-    "x": 304,
-    "y": 140
+    "x": 204,
+    "y": 210
   }
 }
