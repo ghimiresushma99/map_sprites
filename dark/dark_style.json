@@ -89,14 +89,7 @@
       "paint": {"background-color": "rgba(36, 36, 42, 1)"}
     },
     {
-      "id": "Base_background",
-      "type": "background",
-      "minzoom": 0,
-      "layout": {"visibility": "none"},
-      "paint": {"background-color": "#36333b"}
-    },
-    {
-      "id": "Base_world_boundary_fill",
+      "id": "Base_world_boundary_fill-copy",
       "type": "fill",
       "source": "World_Boundary",
       "maxzoom": 24,
@@ -106,7 +99,7 @@
           "stops": [
             [1, "rgba(74, 69, 69, 1)"],
             [3, "rgba(59, 58, 58, 1)"],
-            [7, "rgba(28, 27, 27, 1)"]
+            [7, "#292929"]
           ]
         },
         "fill-opacity": 1,
@@ -120,114 +113,17 @@
       }
     },
     {
-      "id": "Base_country_boundary-fill",
+      "id": "Base_country_boundary-fill-copy",
       "type": "fill",
       "source": "Boundary-Country",
       "maxzoom": 7,
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": {
-          "stops": [[1, "rgba(76, 74, 74, 1)"], [5, "rgba(28, 27, 27, 1)"]]
+          "stops": [[1, "rgba(76, 74, 74, 1)"], [5, "rgba(35, 35, 35, 1)"]]
         },
         "fill-antialias": false
       }
-    },
-    {
-      "id": "Base_country_boundary_line",
-      "type": "line",
-      "source": "Boundary-Country",
-      "layout": {
-        "visibility": "visible",
-        "line-join": "bevel",
-        "line-cap": "butt"
-      },
-      "paint": {
-        "line-opacity": 1,
-        "line-color": {
-          "stops": [
-            [6, "rgba(255, 253, 253, 1)"],
-            [7.5, "rgba(103, 99, 99, 1)"]
-          ]
-        },
-        "line-width": 0.5
-      }
-    },
-    {
-      "id": "Base-country-label",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "place",
-      "minzoom": 0,
-      "maxzoom": 5,
-      "filter": ["all", ["==", "name:en", "Nepal"]],
-      "layout": {
-        "text-optional": false,
-        "visibility": "visible",
-        "text-field": "NEPAL",
-        "text-size": {"stops": [[5, 18], [13, 22]]},
-        "text-anchor": "top",
-        "symbol-placement": "point",
-        "text-font": ["OpenSans"],
-        "symbol-avoid-edges": false,
-        "text-rotate": 19,
-        "text-transform": "uppercase",
-        "text-pitch-alignment": "map",
-        "text-max-width": 7,
-        "text-letter-spacing": 2,
-        "text-offset": [0, -0.5],
-        "text-rotation-alignment": "map",
-        "text-keep-upright": false,
-        "text-writing-mode": []
-      },
-      "paint": {
-        "text-halo-color": "rgba(224, 221, 221, 1)",
-        "text-color": "rgba(197, 197, 197, 1)",
-        "text-halo-width": 0.5
-      }
-    },
-    {
-      "id": "Base-province-boundary",
-      "type": "line",
-      "source": "Boundary-Province",
-      "minzoom": 5,
-      "maxzoom": 9,
-      "layout": {
-        "visibility": "visible",
-        "line-join": "bevel",
-        "line-cap": "butt"
-      },
-      "paint": {
-        "line-width": 0.5,
-        "line-opacity": 0.5,
-        "line-color": {
-          "stops": [
-            [6, "rgba(255, 255, 255, 0.8)"],
-            [7.5, "rgba(103, 99, 99, 1)"]
-          ]
-        }
-      }
-    },
-    {
-      "id": "Base-province-label",
-      "type": "symbol",
-      "source": "ebk000737",
-      "minzoom": 5,
-      "maxzoom": 7,
-      "filter": ["all", ["==", "admin_level", 3]],
-      "layout": {
-        "text-transform": "none",
-        "text-line-height": 1,
-        "visibility": "visible",
-        "text-field": "{name}",
-        "text-anchor": "top",
-        "text-size": {"stops": [[6, 10], [7, 14]]},
-        "text-allow-overlap": false,
-        "text-font": ["OpenSansBold"],
-        "symbol-placement": "point",
-        "symbol-z-order": "auto",
-        "symbol-avoid-edges": false
-      },
-      "paint": {"text-color": "rgba(108, 102, 102, 1)"}
     },
     {
       "id": "Airport-area",
@@ -237,7 +133,7 @@
       "minzoom": 8,
       "filter": ["all", ["==", "$type", "Polygon"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(28, 25, 25, 1)"}
+      "paint": {"fill-color": "rgba(35, 35, 35, 1)"}
     },
     {
       "id": "Airport-runway",
@@ -276,8 +172,18 @@
       "source-layer": "landcover",
       "minzoom": 4,
       "filter": ["all", ["in", "class", "grass"]],
-      "layout": {"visibility": "none"},
-      "paint": {"fill-color": "rgba(27, 31, 32, 1)", "fill-antialias": false}
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(38, 41, 38, 1)", "fill-antialias": false}
+    },
+    {
+      "id": "Landuse-forest-copy-copy",
+      "type": "fill",
+      "source": "qvez6ula1",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["any", ["==", "subclass", "forest"], ["==", "class", "wood"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(30, 33, 30, 1)"}
     },
     {
       "id": "Landuse-forest-copy",
@@ -287,20 +193,7 @@
       "minzoom": 6,
       "filter": ["any", ["==", "subclass", "forest"], ["==", "class", "wood"]],
       "layout": {"visibility": "none"},
-      "paint": {
-        "fill-color": "rgba(76, 158, 47, 0.05)",
-        "fill-outline-color": "rgba(76, 158, 47, 0.05)"
-      }
-    },
-    {
-      "id": "Landuse-forest",
-      "type": "fill",
-      "source": "qvez6ula1",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["any", ["==", "subclass", "forest"], ["==", "class", "wood"]],
-      "layout": {"visibility": "none"},
-      "paint": {"fill-color": "rgba(24, 30, 30, 1)"}
+      "paint": {"fill-color": "rgba(33, 35, 32, 1)"}
     },
     {
       "id": "Landuse-farmland",
@@ -309,11 +202,8 @@
       "source-layer": "landcover",
       "minzoom": 10,
       "filter": ["all", ["in", "class", "farmland"]],
-      "layout": {"visibility": "none"},
-      "paint": {
-        "fill-color": "rgba(77, 121, 77, 0.27)",
-        "fill-opacity": {"stops": [[8, 0.6], [9, 0.2]]}
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(33, 36, 33, 1)"}
     },
     {
       "id": "Landuse-glacier",
@@ -322,9 +212,9 @@
       "source-layer": "landcover",
       "minzoom": 4,
       "filter": ["any", ["==", "class", "ice"]],
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": "rgba(77, 106, 109, 1)",
+        "fill-color": "rgba(71, 73, 76, 1)",
         "fill-opacity": 1,
         "fill-antialias": false
       }
@@ -336,10 +226,9 @@
       "source-layer": "landuse",
       "minzoom": 14,
       "filter": ["any", ["==", "class", "military"]],
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {
-        "fill-outline-color": "rgba(214, 87, 0, 1)",
-        "fill-color": "rgba(161, 170, 136, 1)",
+        "fill-color": "rgba(55, 56, 50, 1)",
         "fill-opacity": {"stops": [[11, 0.25], [16, 0.15], [18, 0]]},
         "fill-antialias": true
       }
@@ -349,9 +238,9 @@
       "type": "fill",
       "source": "pp31tp74k",
       "minzoom": 6,
-      "maxzoom": 22,
+      "maxzoom": 24,
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(76, 158, 47, 0.05)"}
+      "paint": {"fill-color": "rgba(30, 33, 30, 1)"}
     },
     {
       "id": "Health",
@@ -389,11 +278,11 @@
       "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": "rgba(30, 30, 30, 1)",
+        "fill-color": "rgba(33, 33, 33, 1)",
         "fill-antialias": false,
         "fill-opacity": 1,
         "fill-translate-anchor": "map",
-        "fill-outline-color": "rgba(3, 3, 4, 0.38)"
+        "fill-outline-color": "rgba(3, 3, 4, 1)"
       }
     },
     {
@@ -463,7 +352,7 @@
         "line-gap-width": 0.1,
         "line-offset": 0,
         "line-dasharray": [1, 1],
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -498,11 +387,11 @@
         },
         "line-offset": 0,
         "line-dasharray": [1, 2],
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
-      "id": "Highway-path-casing_-copy",
+      "id": "Highway-path-casing",
       "type": "line",
       "source": "qvez6ula1",
       "source-layer": "highway_path",
@@ -518,11 +407,11 @@
         "line-width": {"stops": [[12, 2], [14, 3], [17, 4], [18, 5]]},
         "line-offset": 0,
         "line-opacity": {"stops": [[12, 0], [14, 1]]},
-        "line-color": "rgba(22, 15, 15, 0.7)"
+        "line-color": "rgba(32, 27, 27, 1)"
       }
     },
     {
-      "id": "Highway-path_",
+      "id": "Highway-path",
       "type": "line",
       "source": "qvez6ula1",
       "source-layer": "highway_path",
@@ -539,7 +428,7 @@
         "line-width": {"stops": [[12, 1], [14, 2], [17, 3], [18, 4]]},
         "line-offset": 0,
         "line-dasharray": {"stops": [[16, [3, 1]], [17, [5, 3]]]},
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -569,7 +458,7 @@
           ]
         },
         "line-offset": 0,
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -604,7 +493,7 @@
         },
         "line-offset": 0,
         "line-opacity": {"stops": [[12, 0], [15, 1]]},
-        "line-color": "rgba(47,47,47,1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -633,7 +522,7 @@
         },
         "line-offset": 0,
         "line-opacity": {"stops": [[12, 0.3], [16, 1]]},
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -662,7 +551,7 @@
         },
         "line-offset": 0,
         "line-opacity": {"stops": [[12, 0.3], [16, 1]]},
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -691,7 +580,7 @@
         },
         "line-offset": 0,
         "line-opacity": {"stops": [[12, 0.3], [16, 1]]},
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -722,7 +611,7 @@
           ]
         },
         "line-offset": 0,
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -757,7 +646,7 @@
         },
         "line-offset": 0,
         "line-opacity": {"stops": [[8, 0], [14, 1]]},
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -789,7 +678,7 @@
           ]
         },
         "line-offset": 0,
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -824,7 +713,7 @@
         },
         "line-offset": 0,
         "line-opacity": {"stops": [[8, 0], [14, 1]]},
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -856,7 +745,7 @@
           ]
         },
         "line-offset": 0,
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -891,7 +780,7 @@
         },
         "line-offset": 0,
         "line-opacity": {"stops": [[0, 0], [13, 1]]},
-        "line-color": "rgba(45, 45, 45, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -923,7 +812,7 @@
           ]
         },
         "line-offset": 0,
-        "line-color": "rgba(47,47,47, 1)"
+        "line-color": "#3D3D3D"
       }
     },
     {
@@ -957,1762 +846,11 @@
           ]
         },
         "line-offset": 0,
-        "line-color": {
-          "stops": [
-            [1, "rgba(42, 42, 42, 1)"],
-            [6, "rgba(53, 53, 53, 1)"],
-            [14, "rgba(48, 47, 46, 1)"]
-          ]
-        }
+        "line-color": "#3D3D3D"
       }
     },
     {
       "id": "Poi-other",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "class",
-          "park",
-          "dog_park",
-          "playground",
-          "garden",
-          "garden_centre",
-          "zoo"
-        ],
-        ["!in", "class", "police", "millitary"],
-        [
-          "!in",
-          "class",
-          "art_gallery",
-          "cinema",
-          "swimming_pool",
-          "theatre",
-          "castle",
-          "monument",
-          "",
-          "attraction",
-          "campsite",
-          "information",
-          "museum",
-          "picnic_site"
-        ],
-        ["!in", "class", "hospital"],
-        [
-          "!in",
-          "class",
-          "pharmacy",
-          "clinic",
-          "chemist",
-          "doctors",
-          "dentist",
-          "veterinary"
-        ],
-        ["!in", "class", "religion"],
-        ["!in", "class", "school", "college"],
-        ["!in", "class", "fuel", "charging_station"],
-        ["!in", "class", "office", "embassy"],
-        ["!in", "class", "lodging"],
-        [
-          "!in",
-          "class",
-          "restaurant",
-          "cafe",
-          "fast_food",
-          "bar",
-          "bakery",
-          "beverages",
-          "ice_cream"
-        ],
-        ["!in", "class", "bank", "atm"],
-        [
-          "!in",
-          "class",
-          "alcohol_shop",
-          "car",
-          "clothing_store",
-          "grocery",
-          "laundry",
-          "library",
-          "music",
-          "beauty",
-          "bicycle",
-          "butcher",
-          "chemist",
-          "coffee",
-          "computer",
-          "convenience",
-          "copyshop",
-          "doityourself",
-          "electronics",
-          "florist",
-          "furniture",
-          "garden_centre",
-          "gift",
-          "hairdresser",
-          "hifi",
-          "jewelry",
-          "kiosk",
-          "mobile_phone",
-          "pet",
-          "photo",
-          "shoes",
-          "stationery",
-          "toys",
-          "video_games",
-          "watches"
-        ],
-        [
-          "!in",
-          "class",
-          "golf",
-          "harbor",
-          "park",
-          "stadium",
-          "water_park",
-          "swimming_pool",
-          "swimming",
-          "baseball",
-          "basketball",
-          "climbing",
-          "cricket",
-          "hockey",
-          "surfing",
-          "table_soccer",
-          "table_tennis",
-          "tennis",
-          "volleyball",
-          "yoga"
-        ],
-        [
-          "!in",
-          "class",
-          "station",
-          "cemetery",
-          "post",
-          "bicycle_rental",
-          "ferry_terminal",
-          "fire_station",
-          "prison",
-          "recycling",
-          "shelter",
-          "telephone",
-          "toilets",
-          "waste_basket",
-          "bollard",
-          "gate",
-          "halt",
-          "tramp_stop"
-        ],
-        ["!in", "class", "grass"]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "marker_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "symbol-avoid-edges": false,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-area",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": ["all", ["==", "$type", "Polygon"]],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-max-width": 8,
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.7,
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-no_icon_other",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "class",
-          "park",
-          "dog_park",
-          "playground",
-          "garden",
-          "garden_centre",
-          "zoo"
-        ],
-        ["!in", "class", "police", "millitary"],
-        [
-          "!in",
-          "class",
-          "art_gallery",
-          "cinema",
-          "swimming_pool",
-          "theatre",
-          "castle",
-          "monument",
-          "",
-          "attraction",
-          "campsite",
-          "information",
-          "museum",
-          "picnic_site"
-        ],
-        ["!in", "class", "hospital"],
-        [
-          "!in",
-          "class",
-          "pharmacy",
-          "clinic",
-          "chemist",
-          "doctors",
-          "dentist",
-          "veterinary"
-        ],
-        ["!in", "class", "religion"],
-        ["!in", "class", "school", "college"],
-        ["!in", "class", "fuel", "charging_station"],
-        ["!in", "class", "office", "embassy"],
-        ["!in", "class", "lodging"],
-        [
-          "!in",
-          "class",
-          "restaurant",
-          "cafe",
-          "fast_food",
-          "bar",
-          "bakery",
-          "beverages",
-          "ice_cream"
-        ],
-        ["!in", "class", "bank", "atm"],
-        [
-          "!in",
-          "class",
-          "alcohol_shop",
-          "car",
-          "clothing_store",
-          "grocery",
-          "laundry",
-          "library",
-          "music",
-          "beauty",
-          "bicycle",
-          "butcher",
-          "chemist",
-          "coffee",
-          "computer",
-          "convenience",
-          "copyshop",
-          "doityourself",
-          "electronics",
-          "florist",
-          "furniture",
-          "garden_centre",
-          "gift",
-          "hairdresser",
-          "hifi",
-          "jewelry",
-          "kiosk",
-          "mobile_phone",
-          "pet",
-          "photo",
-          "shoes",
-          "stationery",
-          "toys",
-          "video_games",
-          "watches"
-        ],
-        [
-          "!in",
-          "class",
-          "golf",
-          "harbor",
-          "park",
-          "stadium",
-          "water_park",
-          "swimming_pool",
-          "swimming",
-          "baseball",
-          "basketball",
-          "climbing",
-          "cricket",
-          "hockey",
-          "surfing",
-          "table_soccer",
-          "table_tennis",
-          "tennis",
-          "volleyball",
-          "yoga"
-        ],
-        [
-          "!in",
-          "class",
-          "station",
-          "cemetery",
-          "post",
-          "bicycle_rental",
-          "ferry_terminal",
-          "fire_station",
-          "prison",
-          "recycling",
-          "shelter",
-          "telephone",
-          "toilets",
-          "waste_basket",
-          "bollard",
-          "gate",
-          "halt",
-          "tramp_stop"
-        ],
-        ["!in", "class", "grass"]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "marker_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "symbol-avoid-edges": false,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker_no_icon_other",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "class",
-          "park",
-          "dog_park",
-          "playground",
-          "garden",
-          "garden_centre",
-          "zoo"
-        ],
-        ["!in", "class", "police", "millitary"],
-        [
-          "!in",
-          "class",
-          "art_gallery",
-          "cinema",
-          "swimming_pool",
-          "theatre",
-          "castle",
-          "monument",
-          "",
-          "attraction",
-          "campsite",
-          "information",
-          "museum",
-          "picnic_site"
-        ],
-        ["!in", "class", "hospital"],
-        [
-          "!in",
-          "class",
-          "pharmacy",
-          "clinic",
-          "chemist",
-          "doctors",
-          "dentist",
-          "veterinary"
-        ],
-        ["!in", "class", "religion"],
-        ["!in", "class", "school", "college"],
-        ["!in", "class", "fuel", "charging_station"],
-        ["!in", "class", "office", "embassy"],
-        ["!in", "class", "lodging"],
-        [
-          "!in",
-          "class",
-          "restaurant",
-          "cafe",
-          "fast_food",
-          "bar",
-          "bakery",
-          "beverages",
-          "ice_cream"
-        ],
-        ["!in", "class", "bank", "atm"],
-        [
-          "!in",
-          "class",
-          "alcohol_shop",
-          "car",
-          "clothing_store",
-          "grocery",
-          "laundry",
-          "library",
-          "music",
-          "beauty",
-          "bicycle",
-          "butcher",
-          "chemist",
-          "coffee",
-          "computer",
-          "convenience",
-          "copyshop",
-          "doityourself",
-          "electronics",
-          "florist",
-          "furniture",
-          "garden_centre",
-          "gift",
-          "hairdresser",
-          "hifi",
-          "jewelry",
-          "kiosk",
-          "mobile_phone",
-          "pet",
-          "photo",
-          "shoes",
-          "stationery",
-          "toys",
-          "video_games",
-          "watches"
-        ],
-        [
-          "!in",
-          "class",
-          "golf",
-          "harbor",
-          "park",
-          "stadium",
-          "water_park",
-          "swimming_pool",
-          "swimming",
-          "baseball",
-          "basketball",
-          "climbing",
-          "cricket",
-          "hockey",
-          "surfing",
-          "table_soccer",
-          "table_tennis",
-          "tennis",
-          "volleyball",
-          "yoga"
-        ],
-        [
-          "!in",
-          "class",
-          "station",
-          "cemetery",
-          "post",
-          "bicycle_rental",
-          "ferry_terminal",
-          "fire_station",
-          "prison",
-          "recycling",
-          "shelter",
-          "telephone",
-          "toilets",
-          "waste_basket",
-          "bollard",
-          "gate",
-          "halt",
-          "tramp_stop"
-        ],
-        ["!in", "class", "grass"]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "marker_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "symbol-avoid-edges": false,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-icon_other",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "any",
-        ["match", ["get", "class"], ["station"], true, false],
-        [
-          "match",
-          ["get", "class"],
-          [
-            "bicycle_rental",
-            "cemetery",
-            "ferry_terminal",
-            "fire_station",
-            "post",
-            "prison",
-            "recycling",
-            "shelter",
-            "telephone",
-            "toilets",
-            "waste_basket"
-          ],
-          true,
-          false
-        ],
-        ["match", ["get", "class"], ["bollard", "gate"], true, false],
-        ["match", ["get", "class"], ["halt", "tramp_stop"], true, false]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "symbol-avoid-edges": false,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker_icon_other",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 16,
-      "filter": [
-        "any",
-        ["in", "class", "station"],
-        [
-          "in",
-          "class",
-          "cemetery",
-          "post",
-          "bicycle_rental",
-          "ferry_terminal",
-          "fire_station",
-          "prison",
-          "recycling",
-          "shelter",
-          "telephone",
-          "toilets",
-          "waste_basket"
-        ],
-        ["in", "class", "bollard", "gate"],
-        ["in", "class", "halt", "tramp_stop"]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "symbol-avoid-edges": false,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-halo-width": 1, "text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-shop_icon",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        [
-          "in",
-          "class",
-          "alcohol_shop",
-          "car",
-          "clothing_store",
-          "grocery",
-          "laundry",
-          "library",
-          "music",
-          "beauty",
-          "bicycle",
-          "butcher",
-          "chemist",
-          "coffee",
-          "computer",
-          "convenience",
-          "copyshop",
-          "doityourself",
-          "electronics",
-          "florist",
-          "furniture",
-          "garden_centre",
-          "gift",
-          "hairdresser",
-          "hifi",
-          "jewelry",
-          "kiosk",
-          "mobile_phone",
-          "pet",
-          "photo",
-          "shoes",
-          "stationery",
-          "toys",
-          "video_games",
-          "watches"
-        ]
-      ],
-      "layout": {
-        "icon-rotation-alignment": "auto",
-        "text-optional": false,
-        "icon-allow-overlap": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-text-fit": "none",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "icon-ignore-placement": false,
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "symbol-avoid-edges": false,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-writing-mode": [],
-        "symbol-z-order": "source",
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-shop_icon",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 16,
-      "filter": [
-        "any",
-        [
-          "in",
-          "class",
-          "alcohol_shop",
-          "art_gallery",
-          "car",
-          "clothing_store",
-          "grocery",
-          "laundry",
-          "library",
-          "music",
-          "beauty",
-          "bicycle",
-          "butcher",
-          "chemist",
-          "coffee",
-          "computer",
-          "convenience",
-          "copyshop",
-          "doityourself",
-          "electronics",
-          "florist",
-          "furniture",
-          "garden_centre",
-          "gift",
-          "hairdresser",
-          "hifi",
-          "jewelry",
-          "kiosk",
-          "mobile_phone",
-          "pet",
-          "photo",
-          "shoes",
-          "stationery",
-          "toys",
-          "video_games",
-          "watches"
-        ]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-max-width": 8,
-        "text-field": "{name}",
-        "text-offset": [0, 0.8],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-lodging",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "maxzoom": 24,
-      "filter": ["all", ["in", "class", "lodging"]],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-lodging",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 16,
-      "maxzoom": 24,
-      "filter": ["any", ["in", "class", "lodging"]],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-financial_institution",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "maxzoom": 24,
-      "filter": ["all", ["in", "class", "bank", "atm"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-text-fit": "none",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "icon-anchor": "center",
-        "text-offset": [0, 0.8],
-        "icon-keep-upright": true,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-financial_institution",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 16,
-      "maxzoom": 24,
-      "filter": ["any", ["in", "class", "bank", "atm"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-text-fit": "none",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "icon-anchor": "center",
-        "icon-keep-upright": true,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-food",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "class",
-          "restaurant",
-          "cafe",
-          "fast_food",
-          "bar",
-          "bakery",
-          "beverages",
-          "ice_cream"
-        ]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-text-fit": "none",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "icon-anchor": "center",
-        "icon-keep-upright": true,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-food",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 16,
-      "maxzoom": 24,
-      "filter": [
-        "any",
-        [
-          "in",
-          "class",
-          "restaurant",
-          "cafe",
-          "fast_food",
-          "bar",
-          "bakery",
-          "beverages",
-          "ice_cream"
-        ]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-text-fit": "none",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "icon-anchor": "center",
-        "icon-keep-upright": true,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-office",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 15.5,
-      "maxzoom": 24,
-      "filter": ["all", ["in", "class", "office", "embassy"]],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-office",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 15.5,
-      "maxzoom": 24,
-      "filter": ["any", ["in", "class", "office", "embassy"]],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-health",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 15.5,
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "class",
-          "pharmacy",
-          "clinic",
-          "chemist",
-          "doctors",
-          "dentist",
-          "veterinary",
-          "optician"
-        ]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-health",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 15.5,
-      "maxzoom": 24,
-      "filter": [
-        "any",
-        [
-          "in",
-          "class",
-          "pharmacy",
-          "clinic",
-          "chemist",
-          "doctors",
-          "dentist",
-          "veterinary"
-        ]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-sports/outdoor",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        [
-          "in",
-          "class",
-          "golf",
-          "harbor",
-          "park",
-          "stadium",
-          "water_park",
-          "baseball",
-          "basketball",
-          "climbing",
-          "cricket",
-          "hockey",
-          "surfing",
-          "table_soccer",
-          "table_tennis",
-          "tennis",
-          "volleyball",
-          "yoga"
-        ]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "symbol-avoid-edges": false,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-sports/outdoor",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 16,
-      "filter": [
-        "any",
-        [
-          "in",
-          "class",
-          "golf",
-          "harbor",
-          "park",
-          "stadium",
-          "water_park",
-          "baseball",
-          "basketball",
-          "climbing",
-          "cricket",
-          "hockey",
-          "surfing",
-          "table_soccer",
-          "table_tennis",
-          "tennis",
-          "volleyball",
-          "yoga"
-        ]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "symbol-avoid-edges": false,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-BusStop-parking-symbol",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "maxzoom": 24,
-      "filter": ["all", ["==", "class", "parking"]],
-      "layout": {
-        "symbol-avoid-edges": false,
-        "text-optional": true,
-        "visibility": "none",
-        "text-field": {"stops": [[0, ""], [16, "{name:latin}"]]},
-        "text-offset": [0, 0.8],
-        "text-size": 13,
-        "text-ignore-placement": false,
-        "icon-size": 1,
-        "icon-image": "parking_11",
-        "text-font": ["OpenSans"],
-        "icon-optional": true,
-        "icon-padding": 20,
-        "text-padding": 20
-      },
-      "paint": {"icon-opacity": 1, "text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-fuel/charging_station",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "maxzoom": 24,
-      "filter": ["all", ["in", "class", "fuel", "charging_station"]],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-fuel/charging_station",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 16,
-      "maxzoom": 24,
-      "filter": ["any", ["in", "class", "fuel", "charging_station"]],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-education",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 15.5,
-      "maxzoom": 24,
-      "filter": ["all", ["in", "class", "school", "college"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-anchor": "top",
-        "text-size": 13,
-        "icon-size": 0.9,
-        "icon-image": "{class}_15",
-        "icon-ignore-placement": false,
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 6,
-        "text-offset": [0, 0.8],
-        "icon-offset": [0, -2],
-        "text-ignore-placement": false,
-        "icon-keep-upright": true,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-education",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 15.5,
-      "maxzoom": 24,
-      "filter": ["any", ["in", "class", "school", "college"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-anchor": "top",
-        "text-size": 13,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "icon-ignore-placement": false,
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 6,
-        "text-offset": [0, 0.8],
-        "icon-offset": [0, -2],
-        "text-ignore-placement": false,
-        "icon-keep-upright": true,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-religion",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 13.3,
-      "filter": ["all", ["in", "class", "religion"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-anchor": "top",
-        "text-size": 13,
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{subclass}_15",
-        "icon-ignore-placement": false,
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-ignore-placement": false,
-        "text-padding": 20
-      },
-      "paint": {"text-halo-width": 1, "text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-religion",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 13.3,
-      "filter": ["any", ["in", "class", "religion"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-anchor": "top",
-        "text-size": 13,
-        "text-allow-overlap": false,
-        "icon-size": 0.7,
-        "icon-image": "{subclass}_15",
-        "icon-ignore-placement": false,
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-ignore-placement": false,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-hospital",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 13.3,
-      "maxzoom": 24,
-      "filter": ["all", ["in", "class", "hospital"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-ignore-placement": false,
-        "text-padding": 20
-      },
-      "paint": {"icon-opacity": 1, "text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-hospital",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 13.3,
-      "maxzoom": 24,
-      "filter": ["any", ["in", "class", "hospital"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-ignore-placement": false,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)", "icon-opacity": 1}
-    },
-    {
-      "id": "Poi-attractions",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 15.5,
-      "maxzoom": 24,
-      "filter": [
-        "any",
-        [
-          "in",
-          "class",
-          "art_gallery",
-          "cinema",
-          "theatre",
-          "castle",
-          "monument",
-          "",
-          "castle",
-          "monument",
-          "",
-          "attraction",
-          "campsite",
-          "information",
-          "museum",
-          "picnic_site"
-        ]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "icon-ignore-placement": false,
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.7],
-        "text-ignore-placement": false,
-        "icon-keep-upright": true,
-        "text-padding": 20
-      },
-      "paint": {"icon-opacity": 1, "text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-attractions",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 15.5,
-      "maxzoom": 24,
-      "filter": [
-        "any",
-        [
-          "in",
-          "class",
-          "art_gallery",
-          "cinema",
-          "swimming_pool",
-          "theatre",
-          ""
-        ],
-        ["in", "class", "castle", "monument"],
-        [
-          "in",
-          "class",
-          "attraction",
-          "campsite",
-          "information",
-          "museum",
-          "picnic_site"
-        ]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.7,
-        "icon-image": "{class}_15",
-        "icon-ignore-placement": false,
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-ignore-placement": false,
-        "icon-keep-upright": true,
-        "text-padding": 20
-      },
-      "paint": {"icon-opacity": 1, "text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-police",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "maxzoom": 24,
-      "filter": ["all", ["in", "class", "police", "military"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"icon-opacity": 1, "text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-police",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 14,
-      "maxzoom": 24,
-      "filter": ["any", ["in", "class", "police", "millitary"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name}",
-        "text-size": 13,
-        "text-anchor": "top",
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-padding": 20
-      },
-      "paint": {"icon-opacity": 1, "text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-park",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        [
-          "in",
-          "class",
-          "park",
-          "dog_park",
-          "playground",
-          "garden",
-          "garden_centre",
-          "zoo"
-        ]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-max-width": 8,
-        "text-field": [
-          "case",
-          ["has", "name:en"],
-          ["get", "name:en"],
-          ["get", "name:latin"]
-        ],
-        "text-offset": [0, 0.8],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-park",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 14,
-      "filter": [
-        "any",
-        [
-          "in",
-          "class",
-          "park",
-          "dog_park",
-          "playground",
-          "garden",
-          "garden_centre",
-          "zoo"
-        ]
-      ],
-      "layout": {
-        "text-optional": false,
-        "visibility": "none",
-        "text-max-width": 8,
-        "text-field": "{name}",
-        "text-offset": [0, 0.8],
-        "text-size": 13,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-padding": 20
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-BusStop-symbol",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 15,
-      "maxzoom": 24,
-      "filter": ["all", ["==", "class", "bus"]],
-      "layout": {
-        "symbol-avoid-edges": false,
-        "text-optional": true,
-        "visibility": "none",
-        "text-field": {"stops": [[0, ""], [16, "{name:latin}"]]},
-        "text-offset": [0, 1.8],
-        "text-size": 13,
-        "icon-size": 1,
-        "icon-image": "bus_15",
-        "text-font": ["OpenSans"],
-        "icon-optional": true,
-        "icon-padding": 20,
-        "text-padding": 20
-      },
-      "paint": {"icon-opacity": 1, "text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-other-",
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
@@ -2735,14 +873,52 @@
         "text-max-width": 8,
         "symbol-avoid-edges": false
       },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+      "paint": {
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 0.6
+      }
+    },
+    {
+      "id": "Poi-merging-plucker",
+      "type": "symbol",
+      "source": "baato_inhouse",
+      "source-layer": "pois",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["all", ["has", "class"], ["==", "$type", "Point"]],
+      "layout": {
+        "icon-size": 0.8,
+        "text-font": ["OpenSans"],
+        "text-size": 13,
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "class"]],
+          ["image", "others"]
+        ],
+        "text-field": "{name}",
+        "visibility": "visible",
+        "text-anchor": "top",
+        "text-offset": [0, 1],
+        "icon-padding": 20,
+        "icon-optional": false,
+        "text-optional": false,
+        "text-max-width": 8,
+        "text-allow-overlap": false,
+        "text-padding": 50
+      },
+      "paint": {
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 0.6
+      }
     },
     {
       "id": "Poi-merging-main",
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
-      "minzoom": 14,
+      "minzoom": 16,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -2774,43 +950,53 @@
           ["image", "others"]
         ]
       },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+      "paint": {
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 0.6
+      }
     },
     {
-      "id": "Poi-merging-plucker",
+      "id": "Poi-Plucker-religion",
       "type": "symbol",
       "source": "baato_inhouse",
       "source-layer": "pois",
       "minzoom": 16,
-      "maxzoom": 24,
-      "filter": ["all", ["has", "class"], ["==", "$type", "Point"]],
+      "filter": ["any", ["in", "class", "religion"]],
       "layout": {
-        "icon-size": 0.8,
-        "text-font": ["OpenSans"],
+        "icon-allow-overlap": false,
+        "text-optional": false,
+        "visibility": "visible",
+        "text-field": "{name}",
+        "text-anchor": "top",
         "text-size": 13,
+        "text-allow-overlap": false,
+        "icon-size": 0.8,
         "icon-image": [
           "coalesce",
-          ["image", ["get", "class"]],
+          ["image", ["get", "subclass"]],
           ["image", "others"]
         ],
-        "text-field": "{name}",
-        "visibility": "visible",
-        "text-anchor": "top",
-        "text-offset": [0, 1],
-        "icon-padding": 20,
+        "icon-ignore-placement": false,
+        "text-font": ["OpenSans"],
         "icon-optional": false,
-        "text-optional": false,
+        "icon-padding": 20,
         "text-max-width": 8,
-        "text-allow-overlap": false
+        "text-offset": [0, 1],
+        "text-ignore-placement": false
       },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+      "paint": {
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 1
+      }
     },
     {
-      "id": "Poi-religion-",
+      "id": "Poi-religion",
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
-      "minzoom": 13.3,
+      "minzoom": 16,
       "filter": ["all", ["in", "class", "religion"]],
       "layout": {
         "icon-allow-overlap": false,
@@ -2839,38 +1025,11 @@
         "text-offset": [0, 1],
         "text-ignore-placement": false
       },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
-    },
-    {
-      "id": "Poi-Plucker-religion-",
-      "type": "symbol",
-      "source": "baato_inhouse",
-      "source-layer": "pois",
-      "minzoom": 13.3,
-      "filter": ["any", ["in", "class", "religion"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "visible",
-        "text-field": "{name}",
-        "text-anchor": "top",
-        "text-size": 13,
-        "text-allow-overlap": false,
-        "icon-size": 0.8,
-        "icon-image": [
-          "coalesce",
-          ["image", ["get", "subclass"]],
-          ["image", "others"]
-        ],
-        "icon-ignore-placement": false,
-        "text-font": ["OpenSans"],
-        "icon-optional": false,
-        "icon-padding": 20,
-        "text-max-width": 8,
-        "text-offset": [0, 1],
-        "text-ignore-placement": false
-      },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+      "paint": {
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 0.6
+      }
     },
     {
       "id": "Poi-mountain_peak",
@@ -2891,7 +1050,11 @@
         "icon-padding": 20,
         "icon-image": "{class}"
       },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+      "paint": {
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 0.6
+      }
     },
     {
       "id": "Poi-mountain_peak-other",
@@ -2911,7 +1074,46 @@
         "icon-padding": 20,
         "icon-image": "{class}"
       },
-      "paint": {"text-color": "rgba(164, 148, 148, 1)"}
+      "paint": {
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 0.6
+      }
+    },
+    {
+      "id": "Poi-helipad",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "aeroway",
+      "minzoom": 17,
+      "filter": ["all", ["==", "class", "helipad"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-optional": false,
+        "visibility": "visible",
+        "text-field": "Helipad",
+        "text-anchor": "top",
+        "text-size": 13,
+        "text-allow-overlap": false,
+        "icon-size": 0.8,
+        "icon-ignore-placement": false,
+        "text-font": ["OpenSans"],
+        "icon-optional": false,
+        "icon-padding": 20,
+        "text-max-width": 8,
+        "text-ignore-placement": false,
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "class"]],
+          ["image", "others"]
+        ],
+        "text-offset": [0, 1]
+      },
+      "paint": {
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 0.5
+      }
     },
     {
       "id": "WaterwayLabel-river",
@@ -2975,13 +1177,9 @@
         "text-anchor": "top",
         "text-font": ["OpenSans"],
         "text-letter-spacing": 0.05,
-        "text-transform": {"stops": [[7, "uppercase"], [8, "none"]]}
+        "text-transform": "none"
       },
-      "paint": {
-        "text-halo-blur": 1,
-        "text-color": "rgba(116, 135, 109, 1)",
-        "text-halo-width": 1
-      }
+      "paint": {"text-color": "rgba(57, 72, 57, 1)", "text-halo-width": 1}
     },
     {
       "id": "Nationalhpark_label",
@@ -3011,7 +1209,7 @@
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "place",
-      "minzoom": 15.5,
+      "minzoom": 7,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -3022,8 +1220,13 @@
         "text-optional": false,
         "text-line-height": 1,
         "visibility": "visible",
-        "text-field": "{name:latin}{name:nolatin}",
-        "text-size": {"stops": [[14, 10], [17, 12]]},
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
+        "text-size": {"stops": [[10, 10], [14, 14]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
         "icon-ignore-placement": false,
@@ -3032,12 +1235,12 @@
         "icon-padding": 10,
         "text-transform": "none",
         "text-ignore-placement": false,
-        "text-padding": 8
+        "text-padding": {"stops": [[13, 25], [14, 10]]}
       },
       "paint": {
-        "text-color": "rgba(164, 148, 148, 1)",
-        "text-halo-width": 0.1,
-        "text-halo-color": "rgba(119,119,119, 1)"
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 1
       }
     },
     {
@@ -3045,7 +1248,7 @@
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "place",
-      "minzoom": 14,
+      "minzoom": 7,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -3056,7 +1259,12 @@
         "text-optional": false,
         "text-line-height": 1,
         "visibility": "visible",
-        "text-field": "{name:en}{name:nolatin}",
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
         "text-size": {"stops": [[14, 12], [17, 14]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
@@ -3066,12 +1274,12 @@
         "icon-padding": 10,
         "text-transform": "none",
         "text-ignore-placement": false,
-        "text-padding": 5
+        "text-padding": {"stops": [[13, 25], [14, 10]]}
       },
       "paint": {
-        "text-color": "rgba(164, 148, 148, 1)",
-        "text-halo-width": 0.1,
-        "text-halo-color": "rgba(119,119,119, 1)"
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3079,7 +1287,7 @@
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "place",
-      "minzoom": 12,
+      "minzoom": 7,
       "maxzoom": 24,
       "filter": ["all", ["==", "$type", "Point"], ["==", "class", "suburb"]],
       "layout": {
@@ -3087,7 +1295,12 @@
         "text-optional": false,
         "visibility": "visible",
         "text-max-width": 8,
-        "text-field": "{name:en}{name:nolatin}",
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
         "text-size": {"stops": [[1, 13], [10, 10], [17, 17]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
@@ -3095,12 +1308,12 @@
         "icon-padding": 10,
         "text-line-height": 1,
         "text-letter-spacing": 0.09,
-        "text-padding": 35
+        "text-padding": {"stops": [[13, 25], [14, 10]]}
       },
       "paint": {
-        "text-color": "rgba(164, 148, 148, 1)",
-        "text-halo-width": 0.5,
-        "text-halo-color": "rgba(119,119,119, 1)"
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3108,7 +1321,7 @@
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "place",
-      "minzoom": 12,
+      "minzoom": 7,
       "maxzoom": 24,
       "filter": ["all", ["==", "$type", "Point"], ["in", "class", "village"]],
       "layout": {
@@ -3116,18 +1329,23 @@
         "text-line-height": 1,
         "visibility": "visible",
         "text-max-width": 8,
-        "text-field": "{name:en}{name:nolatin}",
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
         "text-size": {"stops": [[14, 12], [18, 14]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
-        "text-padding": 10,
+        "text-padding": {"stops": [[13, 25], [14, 10]]},
         "text-font": ["OpenSansBold"],
         "icon-padding": 10
       },
       "paint": {
-        "text-color": "rgba(164, 148, 148, 1)",
-        "text-halo-width": 0.1,
-        "text-halo-color": "rgba(119,119,119, 1)"
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3135,8 +1353,8 @@
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "place",
-      "minzoom": 8,
-      "maxzoom": 13,
+      "minzoom": 7,
+      "maxzoom": 24,
       "filter": ["all", ["==", "$type", "Point"], ["in", "class", "town"]],
       "layout": {
         "symbol-avoid-edges": true,
@@ -3144,18 +1362,24 @@
         "text-optional": false,
         "visibility": "visible",
         "text-max-width": 7,
-        "text-field": "{name:latin}",
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
         "text-size": {"stops": [[5, 11], [13, 12]]},
         "text-anchor": "top",
         "text-font": ["OpenSans"],
         "text-keep-upright": false,
         "text-allow-overlap": false,
-        "text-letter-spacing": 0.2
+        "text-letter-spacing": 0.2,
+        "text-padding": {"stops": [[13, 25], [14, 10]]}
       },
       "paint": {
-        "text-color": "rgba(164, 148, 148, 1)",
-        "text-halo-width": 0.5,
-        "text-halo-color": "rgba(119,119,119, 1)"
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3164,26 +1388,32 @@
       "source": "qvez6ula1",
       "source-layer": "place",
       "minzoom": 7,
-      "maxzoom": 12,
+      "maxzoom": 14,
       "filter": ["all", ["==", "$type", "Point"], ["==", "class", "city"]],
       "layout": {
         "symbol-avoid-edges": true,
-        "text-transform": "uppercase",
+        "text-transform": "none",
         "text-optional": false,
         "visibility": "visible",
         "text-max-width": 7,
         "text-letter-spacing": 0.1,
-        "text-field": "{name:en}",
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
         "text-size": {"stops": [[5, 12], [13, 14]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
         "text-ignore-placement": false,
-        "text-font": ["OpenSans"]
+        "text-font": ["OpenSans"],
+        "text-padding": {"stops": [[13, 25], [14, 10]]}
       },
       "paint": {
-        "text-color": "rgba(164, 148, 148, 1)",
-        "text-halo-width": 0.5,
-        "text-halo-color": "rgba(119,119,119, 1)"
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3206,32 +1436,16 @@
         "text-font": ["OpenSans"]
       },
       "paint": {
-        "text-color": "rgba(164, 148, 148, 1)",
-        "text-halo-width": 0.5,
-        "text-halo-color": "rgba(119,119,119, 1)"
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
-    },
-    {
-      "id": "Airport-helipad",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "aeroway",
-      "minzoom": 15,
-      "filter": ["all", ["==", "class", "helipad"], ["==", "$type", "Polygon"]],
-      "layout": {
-        "visibility": "visible",
-        "text-field": "{name}",
-        "icon-image": "heliport_15",
-        "text-font": ["OpenSansRegular"],
-        "text-size": 13
-      },
-      "paint": {"icon-opacity": 0.5, "text-color": "rgba(164, 148, 148, 1)"}
     },
     {
       "id": "Airport_symbol",
       "type": "symbol",
       "source": "airport",
-      "minzoom": 8.5,
+      "minzoom": 14,
       "maxzoom": 24,
       "layout": {
         "text-optional": false,
@@ -3243,20 +1457,38 @@
         "text-size": {"stops": [[13, 10], [17, 12]]},
         "text-allow-overlap": false,
         "icon-size": 0.7,
-        "icon-image": "airport_15",
+        "icon-image": "airport",
         "icon-ignore-placement": false,
-        "text-font": ["OpenSansBold"],
+        "text-font": ["OpenSans"],
         "icon-optional": false,
         "icon-padding": 50,
         "text-max-width": 5,
-        "text-offset": [0, 1],
+        "text-offset": [0, 1.2],
         "text-ignore-placement": false,
         "text-padding": 0
       },
       "paint": {
-        "text-color": "rgba(164, 148, 148, 1)",
+        "text-color": "rgba(161, 158, 158, 1)",
         "text-halo-width": 1,
-        "icon-opacity": 0.5
+        "text-halo-color": "rgba(0, 0, 0, 1)"
+      }
+    },
+    {
+      "id": "HighwayLabel_one_way_arrow",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "highway_oneway",
+      "minzoom": 15,
+      "filter": ["==", "oneway", 1],
+      "layout": {
+        "symbol-avoid-edges": false,
+        "icon-allow-overlap": false,
+        "visibility": "visible",
+        "symbol-z-order": "source",
+        "symbol-placement": "line",
+        "icon-image": "oneway",
+        "icon-ignore-placement": false,
+        "text-font": []
       }
     },
     {
@@ -3282,9 +1514,9 @@
         "text-max-angle": 30
       },
       "paint": {
-        "text-halo-blur": 1,
-        "text-color": "rgba(119,119,119, 1)",
-        "text-halo-width": 1
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3310,9 +1542,9 @@
         "text-max-angle": 30
       },
       "paint": {
-        "text-halo-blur": 1,
-        "text-color": "rgba(119,119,119, 1)",
-        "text-halo-width": 1
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3338,9 +1570,9 @@
         "text-max-angle": 30
       },
       "paint": {
-        "text-halo-blur": 1,
-        "text-color": "rgba(119,119,119, 1)",
-        "text-halo-width": 1
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3366,9 +1598,9 @@
         "text-max-angle": 30
       },
       "paint": {
-        "text-halo-blur": 1,
-        "text-color": "rgba(119,119,119, 1)",
-        "text-halo-width": 1
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3395,10 +1627,10 @@
         "text-max-angle": 30
       },
       "paint": {
-        "text-halo-blur": 1,
-        "text-color": "rgba(119,119,119, 1)",
+        "text-color": "rgba(161, 158, 158, 1)",
         "text-halo-width": 1,
-        "icon-translate-anchor": "map"
+        "icon-translate-anchor": "map",
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3426,10 +1658,9 @@
         "text-justify": "center"
       },
       "paint": {
-        "text-halo-blur": 1,
-        "text-color": "rgba(119, 119, 119, 1)",
+        "text-color": "rgba(161, 158, 158, 1)",
         "text-halo-width": 1,
-        "text-halo-color": "rgba(0, 0, 0, 0)"
+        "text-halo-color": "rgba(0, 0, 0, 1)"
       }
     },
     {
@@ -3518,6 +1749,102 @@
         "line-opacity": 0.1,
         "line-dasharray": [1, 2, 1],
         "line-color": "rgba(57, 55, 55, 1)"
+      }
+    },
+    {
+      "id": "Base-province-boundary",
+      "type": "line",
+      "source": "Boundary-Province",
+      "minzoom": 5,
+      "maxzoom": 9,
+      "layout": {
+        "visibility": "visible",
+        "line-join": "bevel",
+        "line-cap": "butt"
+      },
+      "paint": {
+        "line-width": 0.5,
+        "line-opacity": 0.5,
+        "line-color": {
+          "stops": [
+            [6, "rgba(255, 255, 255, 0.8)"],
+            [7.5, "rgba(103, 99, 99, 1)"]
+          ]
+        }
+      }
+    },
+    {
+      "id": "Base-province-label",
+      "type": "symbol",
+      "source": "ebk000737",
+      "minzoom": 5,
+      "maxzoom": 7,
+      "filter": ["all", ["==", "admin_level", 3]],
+      "layout": {
+        "text-transform": "none",
+        "text-line-height": 1,
+        "visibility": "visible",
+        "text-field": "{name}",
+        "text-anchor": "top",
+        "text-size": {"stops": [[6, 10], [7, 14]]},
+        "text-allow-overlap": false,
+        "text-font": ["OpenSansBold"],
+        "symbol-placement": "point",
+        "symbol-z-order": "auto",
+        "symbol-avoid-edges": false
+      },
+      "paint": {
+        "text-color": "rgba(161, 158, 158, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Base-country-label",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "place",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": ["all", ["==", "name:en", "Nepal"]],
+      "layout": {
+        "text-optional": false,
+        "visibility": "visible",
+        "text-field": "NEPAL",
+        "text-size": {"stops": [[5, 18], [13, 22]]},
+        "text-anchor": "top",
+        "symbol-placement": "point",
+        "text-font": ["OpenSans"],
+        "symbol-avoid-edges": false,
+        "text-rotate": 19,
+        "text-transform": "uppercase",
+        "text-pitch-alignment": "map",
+        "text-max-width": 7,
+        "text-letter-spacing": 2,
+        "text-offset": [0, -0.5],
+        "text-rotation-alignment": "map",
+        "text-keep-upright": false,
+        "text-writing-mode": []
+      },
+      "paint": {
+        "text-color": "rgba(175, 172, 172, 1)",
+        "text-halo-color": "rgba(175, 172, 172, 1)",
+        "text-halo-width": 0.1
+      }
+    },
+    {
+      "id": "Base_country_boundary_line",
+      "type": "line",
+      "source": "Boundary-Country",
+      "layout": {
+        "visibility": "visible",
+        "line-join": "bevel",
+        "line-cap": "butt"
+      },
+      "paint": {
+        "line-opacity": 1,
+        "line-color": "rgba(148, 148, 148, 1)",
+        "line-width": 1.5
       }
     }
   ],
