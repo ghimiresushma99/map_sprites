@@ -10,29 +10,25 @@
     "openmaptiles:mapbox:owner": "openmaptiles"
   },
   "sources": {
-    "pp31tp74k": {
-      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/ProtectedArea.json",
-      "type": "geojson"
-    },
-    "Boundary-Province": {
-      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/province_adm_lv_3.json",
-      "type": "geojson"
-    },
-    "Boundary-Country": {
-      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/country_adm_lv_2.json",
-      "type": "geojson"
-    },
-    "74jk6ajvi": {
-      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/ProtectedPoints.json.gz",
-      "type": "geojson"
-    },
-    "qvez6ula1": {
+    "all_data": {
       "tiles": [
         "https://api.baato.io/api/v1/maps/{z}/{x}/{y}.pbf?key=bpk.BRHlchztievq4D9ElWx1RzqlREGfCooGXqzzi-cxTNzU"
       ],
       "maxzoom": 14,
       "type": "vector",
       "minzoom": 0
+    },
+    "baato_inhouse": {
+      "tiles": [
+        "https://baatocdn.sgp1.digitaloceanspaces.com/pois/vector/{z}/{x}/{y}.pbf"
+      ],
+      "maxzoom": 14,
+      "type": "vector",
+      "minzoom": 15
+    },
+    "airport_label": {
+      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/Airport.json",
+      "type": "geojson"
     },
     "buildings": {
       "tiles": [
@@ -44,29 +40,33 @@
       "type": "vector",
       "minzoom": 16
     },
-    "ebk000737": {
-      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/AdminCenters.json",
+    "Boundary-Province": {
+      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/province_adm_lv_3.json",
       "type": "geojson"
     },
-    "baato_inhouse": {
-      "tiles": [
-        "https://baatocdn.sgp1.digitaloceanspaces.com/pois/vector/{z}/{x}/{y}.pbf"
-      ],
-      "maxzoom": 14,
-      "type": "vector",
-      "minzoom": 15
-    },
-    "airport": {
-      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/Airport.json",
-      "type": "geojson"
-    },
-    "custom_icons_poi": {
-      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/customicons.json",
+    "Boundary-Country": {
+      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/country_adm_lv_2.json",
       "type": "geojson"
     },
     "World_Boundary": {
       "type": "geojson",
       "data": "https://ghimiresushma99.github.io/dump/world_boundary_poly.geojson"
+    },
+    "province_label": {
+      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/AdminCenters.json",
+      "type": "geojson"
+    },
+    "National_Park": {
+      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/ProtectedArea.json",
+      "type": "geojson"
+    },
+    "national_park_label": {
+      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/ProtectedPoints.json.gz",
+      "type": "geojson"
+    },
+    "custom_icons_poi": {
+      "data": "https://baatocdn.sgp1.cdn.digitaloceanspaces.com/boundaries/lite/customicons.json",
+      "type": "geojson"
     }
   },
   "sprite": "https://ghimiresushma99.github.io/map_style_assets//breeze/icon_assests/breeze_svgs",
@@ -117,7 +117,7 @@
     {
       "id": "Airport-area",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "aeroway",
       "minzoom": 7,
       "maxzoom": 24,
@@ -128,7 +128,7 @@
     {
       "id": "Airport-runway",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "aeroway",
       "minzoom": 10,
       "maxzoom": 24,
@@ -146,7 +146,7 @@
     {
       "id": "Airport-taxiway",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "aeroway",
       "minzoom": 10,
       "maxzoom": 24,
@@ -160,7 +160,7 @@
     {
       "id": "Landuse-Education-area",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landuse",
       "minzoom": 14,
       "filter": [
@@ -175,7 +175,7 @@
     {
       "id": "Landuse-Health-area",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["all", ["==", "class", "hospital"]],
@@ -185,7 +185,7 @@
     {
       "id": "Landuse-swimmingpool",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landuse",
       "minzoom": 10,
       "maxzoom": 24,
@@ -196,7 +196,7 @@
     {
       "id": "Landuse-industrial",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landuse",
       "minzoom": 10,
       "maxzoom": 24,
@@ -207,7 +207,7 @@
     {
       "id": "Landuse-commercial",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landuse",
       "minzoom": 10,
       "maxzoom": 24,
@@ -218,7 +218,7 @@
     {
       "id": "Landuse-residential",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landuse",
       "minzoom": 10,
       "maxzoom": 24,
@@ -236,7 +236,7 @@
     {
       "id": "Landuse-military",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landuse",
       "minzoom": 10,
       "maxzoom": 24,
@@ -247,7 +247,7 @@
     {
       "id": "Landuse-parking",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landuse",
       "minzoom": 6,
       "maxzoom": 24,
@@ -261,7 +261,7 @@
     {
       "id": "Landuse-outdoor/sports",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landuse",
       "minzoom": 10,
       "maxzoom": 24,
@@ -290,7 +290,7 @@
     {
       "id": "Landuse-grass",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landcover",
       "minzoom": 6,
       "maxzoom": 24,
@@ -301,7 +301,7 @@
     {
       "id": "Landuse-farmland",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landcover",
       "minzoom": 6,
       "maxzoom": 24,
@@ -312,7 +312,7 @@
     {
       "id": "Landuse-forest",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landcover",
       "minzoom": 5,
       "maxzoom": 24,
@@ -323,7 +323,7 @@
     {
       "id": "Landuse-NationalPark",
       "type": "fill",
-      "source": "pp31tp74k",
+      "source": "National_Park",
       "minzoom": 5,
       "maxzoom": 24,
       "layout": {"visibility": "visible"},
@@ -338,7 +338,7 @@
     {
       "id": "Landuse-glacier",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "landcover",
       "minzoom": 5,
       "maxzoom": 24,
@@ -352,7 +352,7 @@
     {
       "id": "Waterway-lake",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "water",
       "minzoom": 9,
       "maxzoom": 24,
@@ -370,7 +370,7 @@
     {
       "id": "Waterway-riverbank",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "water",
       "minzoom": 12,
       "maxzoom": 24,
@@ -381,7 +381,7 @@
     {
       "id": "Waterway-stream",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "waterway",
       "minzoom": 12,
       "maxzoom": 24,
@@ -395,7 +395,7 @@
     {
       "id": "Waterway-river",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "waterway",
       "minzoom": 8,
       "maxzoom": 24,
@@ -428,7 +428,7 @@
     {
       "id": "HighwayCasing-path",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_path",
       "minzoom": 12,
       "maxzoom": 24,
@@ -448,7 +448,7 @@
     {
       "id": "HighwayCasing-pedestrian",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_pedestrian",
       "minzoom": 12,
       "maxzoom": 24,
@@ -470,7 +470,7 @@
     {
       "id": "HighwayCasing-pedestrian-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_pedestrian",
       "minzoom": 12,
       "maxzoom": 24,
@@ -493,7 +493,7 @@
     {
       "id": "HighwayCasing-track",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_track",
       "minzoom": 12,
       "maxzoom": 24,
@@ -515,7 +515,7 @@
     {
       "id": "HighwayCasing-track-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_track",
       "minzoom": 12,
       "maxzoom": 24,
@@ -538,7 +538,7 @@
     {
       "id": "HighwayCasing-service",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_service",
       "minzoom": 12,
       "maxzoom": 24,
@@ -560,7 +560,7 @@
     {
       "id": "HighwayCasing-service-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_service",
       "minzoom": 12,
       "maxzoom": 24,
@@ -583,7 +583,7 @@
     {
       "id": "HighwayCasing-minor",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_minor",
       "minzoom": 12,
       "maxzoom": 24,
@@ -609,7 +609,7 @@
     {
       "id": "HighwayCasing-minor-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_minor",
       "minzoom": 12,
       "maxzoom": 24,
@@ -636,7 +636,7 @@
     {
       "id": "HighwayCasing-tertiary_link",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_tertiary_link",
       "minzoom": 10,
       "maxzoom": 24,
@@ -668,7 +668,7 @@
     {
       "id": "HighwayCasing-tertiary",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_tertiary",
       "minzoom": 10,
       "maxzoom": 24,
@@ -700,7 +700,7 @@
     {
       "id": "HighwayCasing-tertiary_link-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_tertiary_link",
       "minzoom": 11,
       "maxzoom": 24,
@@ -733,7 +733,7 @@
     {
       "id": "HighwayCasing-tertiary-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_tertiary",
       "minzoom": 11,
       "maxzoom": 24,
@@ -766,7 +766,7 @@
     {
       "id": "HighwayCasing-secondary_link",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_secondary_link",
       "minzoom": 10,
       "maxzoom": 24,
@@ -798,7 +798,7 @@
     {
       "id": "HighwayCasing-secondary",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_secondary",
       "minzoom": 10,
       "maxzoom": 24,
@@ -830,7 +830,7 @@
     {
       "id": "HighwayCasing-secondary_link-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_secondary_link",
       "minzoom": 11,
       "maxzoom": 24,
@@ -863,7 +863,7 @@
     {
       "id": "HighwayCasing-secondary-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_secondary",
       "minzoom": 11,
       "maxzoom": 24,
@@ -896,7 +896,7 @@
     {
       "id": "HighwayCasing-primary_link",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_primary_link",
       "minzoom": 7,
       "maxzoom": 24,
@@ -928,7 +928,7 @@
     {
       "id": "HighwayCasing-primary",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_primary",
       "minzoom": 7,
       "maxzoom": 24,
@@ -960,7 +960,7 @@
     {
       "id": "HighwayCasing-primary_link-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_primary_link",
       "minzoom": 11,
       "maxzoom": 24,
@@ -993,7 +993,7 @@
     {
       "id": "HighwayCasing-primary-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_primary",
       "minzoom": 11,
       "maxzoom": 24,
@@ -1026,7 +1026,7 @@
     {
       "id": "HighwayCasing-trunk_link",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_trunk_link",
       "minzoom": 7,
       "maxzoom": 24,
@@ -1059,7 +1059,7 @@
     {
       "id": "HighwayCasing-trunk",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_trunk",
       "minzoom": 7,
       "maxzoom": 24,
@@ -1092,7 +1092,7 @@
     {
       "id": "HighwayCasing-trunk_link-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_trunk_link",
       "minzoom": 11,
       "maxzoom": 24,
@@ -1126,7 +1126,7 @@
     {
       "id": "HighwayCasing-trunk-bridge",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_trunk",
       "minzoom": 11,
       "maxzoom": 24,
@@ -1160,7 +1160,7 @@
     {
       "id": "Highway-steps",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_minor",
       "minzoom": 12.5,
       "maxzoom": 24,
@@ -1182,7 +1182,7 @@
     {
       "id": "Highway-path",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_path",
       "minzoom": 12.5,
       "maxzoom": 24,
@@ -1203,7 +1203,7 @@
     {
       "id": "Highway-pedestrian",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_pedestrian",
       "minzoom": 13,
       "maxzoom": 24,
@@ -1232,7 +1232,7 @@
     {
       "id": "Highway-track",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_track",
       "minzoom": 13,
       "maxzoom": 24,
@@ -1261,7 +1261,7 @@
     {
       "id": "Highway-service",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_service",
       "minzoom": 13,
       "maxzoom": 24,
@@ -1290,7 +1290,7 @@
     {
       "id": "Highway-minor",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_minor",
       "minzoom": 12,
       "maxzoom": 24,
@@ -1324,7 +1324,7 @@
     {
       "id": "Highway-tertiary_link",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_tertiary_link",
       "minzoom": 8,
       "maxzoom": 24,
@@ -1364,7 +1364,7 @@
     {
       "id": "Highway-tertiary",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_tertiary",
       "minzoom": 8,
       "maxzoom": 24,
@@ -1404,7 +1404,7 @@
     {
       "id": "Highway-secondary_link",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_secondary_link",
       "minzoom": 9,
       "maxzoom": 24,
@@ -1444,7 +1444,7 @@
     {
       "id": "Highway-secondary",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_secondary",
       "minzoom": 9,
       "maxzoom": 24,
@@ -1484,7 +1484,7 @@
     {
       "id": "Highway-primary_link",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_primary_link",
       "minzoom": 7,
       "maxzoom": 24,
@@ -1521,9 +1521,9 @@
       }
     },
     {
-      "id": "Highway-primary-copy",
+      "id": "Highway-primary",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_primary",
       "minzoom": 7,
       "maxzoom": 24,
@@ -1560,48 +1560,9 @@
       }
     },
     {
-      "id": "Highway-primary",
-      "type": "line",
-      "source": "qvez6ula1",
-      "source-layer": "highway_primary",
-      "minzoom": 7,
-      "maxzoom": 24,
-      "layout": {
-        "visibility": "none",
-        "line-cap": "round",
-        "line-join": "bevel"
-      },
-      "paint": {
-        "line-translate-anchor": "map",
-        "line-width": {
-          "stops": [
-            [7, 1.4],
-            [8, 1.4],
-            [9, 1.8],
-            [10, 1.8],
-            [11, 2.5],
-            [12, 4],
-            [13, 8.6],
-            [15, 16],
-            [16, 19],
-            [17, 25],
-            [18, 30],
-            [19, 50]
-          ]
-        },
-        "line-offset": 0,
-        "line-color": {
-          "stops": [
-            [6, "rgba(176, 195, 192, 1)"],
-            [14, "rgba(226, 230, 229, 1)"]
-          ]
-        }
-      }
-    },
-    {
       "id": "Highway-trunk_link",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_trunk_link",
       "minzoom": 7,
       "maxzoom": 24,
@@ -1640,7 +1601,7 @@
     {
       "id": "Highway-trunk",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_trunk",
       "minzoom": 7,
       "maxzoom": 24,
@@ -1680,7 +1641,7 @@
       "id": "Highway_pier",
       "type": "line",
       "metadata": {},
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "pier",
       "filter": ["all", ["==", "class", "pier"]],
       "layout": {
@@ -1696,7 +1657,7 @@
     {
       "id": "Highway-casing-bridge-path",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_path",
       "minzoom": 12,
       "maxzoom": 24,
@@ -1717,7 +1678,7 @@
     {
       "id": "Highway-bridge-path",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_path",
       "minzoom": 12.5,
       "maxzoom": 24,
@@ -1738,7 +1699,7 @@
     {
       "id": "Highway-cablecar",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "aerialway_cablecar",
       "minzoom": 13,
       "maxzoom": 24,
@@ -1768,7 +1729,7 @@
     {
       "id": "Railway-casing",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_railway",
       "minzoom": 7,
       "layout": {"visibility": "visible"},
@@ -1782,7 +1743,7 @@
     {
       "id": "Railway",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_railway",
       "minzoom": 7,
       "layout": {"visibility": "visible"},
@@ -1803,7 +1764,7 @@
     {
       "id": "Railway-dash-array",
       "type": "line",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_railway",
       "minzoom": 7,
       "layout": {"visibility": "visible"},
@@ -1825,7 +1786,7 @@
     {
       "id": "Poi-other",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "poi",
       "minzoom": 16,
       "filter": ["all", ["!has", "class"]],
@@ -1946,7 +1907,7 @@
     {
       "id": "Poi-merging-main",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "poi",
       "minzoom": 14,
       "maxzoom": 24,
@@ -2047,7 +2008,7 @@
     {
       "id": "Poi-religion",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "poi",
       "minzoom": 13.3,
       "filter": ["all", ["in", "class", "religion"]],
@@ -2122,7 +2083,7 @@
     {
       "id": "Poi-mountain_peak-other",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "mountain_peak",
       "minzoom": 11,
       "filter": ["all"],
@@ -2148,7 +2109,7 @@
     {
       "id": "Poi-mountain_peak",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "mountain_peak",
       "minzoom": 11,
       "filter": ["all", ["has", "ele"]],
@@ -2174,7 +2135,7 @@
     {
       "id": "Poi-helipad",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "aeroway",
       "minzoom": 14,
       "filter": ["all", ["==", "class", "helipad"]],
@@ -2209,7 +2170,7 @@
     {
       "id": "Waterwaylabel-river",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "waterway",
       "minzoom": 12,
       "maxzoom": 24,
@@ -2237,7 +2198,7 @@
     {
       "id": "Waterwaylabel-lake-copy",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "water_name",
       "minzoom": 14,
       "filter": ["any", ["==", "class", "lake"]],
@@ -2260,7 +2221,7 @@
     {
       "id": "NationalPark-symbol",
       "type": "symbol",
-      "source": "74jk6ajvi",
+      "source": "national_park_label",
       "minzoom": 5,
       "maxzoom": 10,
       "filter": ["all", ["!in", "name", "Rani Ban", "Gokarna Reserve Forest"]],
@@ -2283,7 +2244,7 @@
     {
       "id": "Place-other",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "place",
       "minzoom": 7,
       "maxzoom": 24,
@@ -2319,7 +2280,7 @@
     {
       "id": "Place-neighbourhood",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "place",
       "minzoom": 7,
       "maxzoom": 24,
@@ -2362,7 +2323,7 @@
     {
       "id": "Place-suburb",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "place",
       "minzoom": 7,
       "maxzoom": 24,
@@ -2405,7 +2366,7 @@
     {
       "id": "Place-village",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "place",
       "minzoom": 7,
       "maxzoom": 24,
@@ -2441,7 +2402,7 @@
     {
       "id": "Place-town",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "place",
       "minzoom": 7,
       "maxzoom": 24,
@@ -2475,7 +2436,7 @@
     {
       "id": "Place-city",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "place",
       "minzoom": 6.5,
       "maxzoom": 12,
@@ -2507,7 +2468,7 @@
     {
       "id": "Place-admin-centre",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "place",
       "minzoom": 6,
       "maxzoom": 12,
@@ -2537,9 +2498,9 @@
       }
     },
     {
-      "id": "Place-province-label-boundary",
+      "id": "Place-province",
       "type": "symbol",
-      "source": "ebk000737",
+      "source": "province_label",
       "minzoom": 4,
       "maxzoom": 7,
       "filter": ["all", ["==", "admin_level", 3]],
@@ -2564,7 +2525,7 @@
     {
       "id": "HighwayLabel_one_way_arrow",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_oneway",
       "minzoom": 15,
       "filter": ["==", "oneway", 1],
@@ -2582,7 +2543,7 @@
     {
       "id": "HighwayLabel-path",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_path",
       "minzoom": 13,
       "filter": ["all"],
@@ -2617,7 +2578,7 @@
     {
       "id": "HighwayLabel-track",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_track",
       "minzoom": 13,
       "filter": ["all"],
@@ -2652,7 +2613,7 @@
     {
       "id": "HighwayLabel-pedestrian",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_pedestrian",
       "minzoom": 13,
       "filter": ["all"],
@@ -2687,7 +2648,7 @@
     {
       "id": "HighwayLabel-service",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_service",
       "minzoom": 13,
       "filter": ["all"],
@@ -2722,7 +2683,7 @@
     {
       "id": "HighwayLabel-minor",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_minor",
       "minzoom": 13,
       "filter": ["all"],
@@ -2760,7 +2721,7 @@
     {
       "id": "HighwayLabel-tertiary",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_tertiary",
       "minzoom": 13,
       "filter": ["all"],
@@ -2795,7 +2756,7 @@
     {
       "id": "HighwayLabel-secondary",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_secondary",
       "minzoom": 13,
       "filter": ["all"],
@@ -2830,7 +2791,7 @@
     {
       "id": "HighwayLabel-primary",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_primary",
       "minzoom": 13,
       "filter": ["all"],
@@ -2866,7 +2827,7 @@
     {
       "id": "HighwayLabel-trunk",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "highway_trunk",
       "minzoom": 13,
       "filter": ["all", ["==", "class", "trunk"]],
@@ -2901,9 +2862,9 @@
       }
     },
     {
-      "id": "PoiAirport_symbol",
+      "id": "Poi-Airport_symbol",
       "type": "symbol",
-      "source": "airport",
+      "source": "airport_label",
       "minzoom": 10,
       "maxzoom": 24,
       "filter": ["all"],
@@ -2933,7 +2894,7 @@
     {
       "id": "Protected",
       "type": "fill",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "boundary",
       "layout": {"visibility": "visible"}
     },
@@ -2988,7 +2949,7 @@
     {
       "id": "Place-country-label-copy",
       "type": "symbol",
-      "source": "qvez6ula1",
+      "source": "all_data",
       "source-layer": "place",
       "minzoom": 0,
       "maxzoom": 5,
