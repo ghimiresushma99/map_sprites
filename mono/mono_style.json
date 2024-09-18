@@ -213,7 +213,7 @@
       "maxzoom": 24,
       "filter": ["any", ["==", "class", "military"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(210, 210, 210, 1)"}
+      "paint": {"fill-color": "rgba(168, 164, 164, 0.4)"}
     },
     {
       "id": "Landuse-parking",
@@ -1691,6 +1691,37 @@
       }
     },
     {
+      "id": "Highway-cablecar-copy",
+      "type": "line",
+      "source": "all_data",
+      "source-layer": "aerialway_cablecar",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "layout": {
+        "visibility": "visible",
+        "line-cap": "round",
+        "line-join": "bevel"
+      },
+      "paint": {
+        "line-translate-anchor": "map",
+        "line-width": {
+          "stops": [
+            [13, 0.9],
+            [15, 2.3],
+            [15, 0.5],
+            [16, 5.4],
+            [17, 6.9],
+            [18, 9.4],
+            [19, 10.4]
+          ]
+        },
+        "line-offset": 0,
+        "line-opacity": {"stops": [[12, 0.3], [14, 1]]},
+        "line-color": "rgba(225, 225, 225, 1)",
+        "line-gap-width": 20
+      }
+    },
+    {
       "id": "Highway-cablecar",
       "type": "line",
       "source": "all_data",
@@ -1717,7 +1748,52 @@
         },
         "line-offset": 0,
         "line-opacity": {"stops": [[12, 0.3], [14, 1]]},
-        "line-color": "rgba(185, 184, 184, 1)"
+        "line-color": "rgba(225, 225, 225, 1)"
+      }
+    },
+    {
+      "id": "Railway-mini",
+      "type": "line",
+      "source": "all_data",
+      "source-layer": "highway_railway",
+      "minzoom": 15,
+      "filter": ["all"],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-width": {
+          "stops": [
+            [13, 0.9],
+            [15, 2.3],
+            [16, 5.4],
+            [17, 6.9],
+            [18, 9.4],
+            [19, 10.4]
+          ]
+        },
+        "line-color": "rgba(234, 233, 233, 1)"
+      }
+    },
+    {
+      "id": "Railway-mini-dash-array",
+      "type": "line",
+      "source": "all_data",
+      "source-layer": "highway_railway",
+      "minzoom": 15,
+      "filter": ["all"],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-width": {
+          "stops": [
+            [13, 0.9],
+            [15, 2.3],
+            [16, 5.4],
+            [17, 6.9],
+            [18, 9.4],
+            [19, 10.4]
+          ]
+        },
+        "line-dasharray": {"stops": [[12, [1, 3]], [16, [1, 2]]]},
+        "line-color": "rgba(161, 154, 154, 1)"
       }
     },
     {
@@ -1725,7 +1801,8 @@
       "type": "line",
       "source": "all_data",
       "source-layer": "highway_railway",
-      "minzoom": 15,
+      "minzoom": 7,
+      "filter": ["all", ["!=", "class", "miniature"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-width": {
@@ -1739,7 +1816,8 @@
       "type": "line",
       "source": "all_data",
       "source-layer": "highway_railway",
-      "minzoom": 15,
+      "minzoom": 7,
+      "filter": ["all", ["!=", "class", "miniature"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-width": {
@@ -1752,7 +1830,12 @@
             [19, 10.4]
           ]
         },
-        "line-color": "rgba(200, 200, 200, 1)"
+        "line-color": {
+          "stops": [
+            [17, "rgba(255, 255, 255, 1)"],
+            [20, "rgba(234, 233, 233, 1)"]
+          ]
+        }
       }
     },
     {
@@ -1760,7 +1843,8 @@
       "type": "line",
       "source": "all_data",
       "source-layer": "highway_railway",
-      "minzoom": 15,
+      "minzoom": 10,
+      "filter": ["all", ["!=", "class", "miniature"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-width": {
@@ -2413,7 +2497,18 @@
       "filter": [
         "all",
         ["==", "$type", "Point"],
-        ["!in", "class", "grass", "farmland", "residential", "wood"],
+        [
+          "!in",
+          "class",
+          "grass",
+          "industrial",
+          "commercial",
+          "residential",
+          "farmland",
+          "wood",
+          "pitch",
+          "sand"
+        ],
         ["has", "class"]
       ],
       "layout": {
@@ -2437,6 +2532,192 @@
         "icon-image": [
           "coalesce",
           ["image", ["get", "class"]],
+          ["image", "others"]
+        ],
+        "text-padding": 30
+      },
+      "paint": {
+        "text-color": [
+          "match",
+          ["get", "class"],
+          ["airport", "bus", "car", "charging_station", "fuel", "parking"],
+          "rgba(76, 80, 83, 1)",
+          ["campsite", "park", "playground", "sport", "zoo"],
+          "rgba(46, 60, 39, 1)",
+          ["police", "millitary"],
+          "rgba(64, 60, 60, 1)",
+          [
+            "art_gallery",
+            "attraction",
+            "castle",
+            "cemetery",
+            "cinema",
+            "swimming_pool",
+            "fire_station",
+            "gate",
+            "monument",
+            "museum",
+            "post",
+            "prison",
+            "shelter",
+            "stadium",
+            "toilets"
+          ],
+          "rgba(48, 47, 47, 1)",
+          [
+            "dentist",
+            "doctors",
+            "healthpost",
+            "hospital",
+            "pharmacy",
+            "veterinary"
+          ],
+          "rgba(88, 79, 79, 1)",
+          ["school", "college"],
+          "rgba(75, 70, 70, 1)",
+          ["office", "embassy"],
+          "rgba(70, 71, 71, 1)",
+          [
+            "bakery",
+            "bar",
+            "beer",
+            "cafe",
+            "fast_food",
+            "ice_cream",
+            "restaurant"
+          ],
+          "rgba(70, 71, 71, 1)",
+          ["bank", "atm"],
+          "rgba(70, 71, 71, 1)",
+          "lodging",
+          "rgba(70, 71, 71, 1)",
+          ["clothing_store", "grocery", "shop"],
+          "rgba(70, 71, 71, 1)",
+          "rgba(70, 71, 71, 1)"
+        ],
+        "text-halo-color": "rgba(230, 228, 228, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Poi-Plucker-religion",
+      "type": "symbol",
+      "source": "baato_inhouse",
+      "source-layer": "pois",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["all", ["in", "class", "religion"]],
+      "layout": {
+        "icon-size": 0.8,
+        "text-font": ["OpenSans"],
+        "text-size": 13,
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "subclass"]],
+          ["image", "others"]
+        ],
+        "text-field": "{name}",
+        "visibility": "visible",
+        "text-anchor": "top",
+        "text-offset": [0, 1],
+        "icon-padding": 20,
+        "icon-optional": false,
+        "text-optional": false,
+        "text-max-width": 8,
+        "text-allow-overlap": false
+      },
+      "paint": {
+        "text-color": [
+          "match",
+          ["get", "class"],
+          ["airport", "bus", "car", "charging_station", "fuel", "parking"],
+          "rgba(76, 80, 83, 1)",
+          ["campsite", "park", "playground", "sport", "zoo"],
+          "rgba(46, 60, 39, 1)",
+          ["police", "millitary"],
+          "rgba(64, 60, 60, 1)",
+          [
+            "art_gallery",
+            "attraction",
+            "castle",
+            "cemetery",
+            "cinema",
+            "swimming_pool",
+            "fire_station",
+            "gate",
+            "monument",
+            "museum",
+            "post",
+            "prison",
+            "shelter",
+            "stadium",
+            "toilets"
+          ],
+          "rgba(48, 47, 47, 1)",
+          [
+            "dentist",
+            "doctors",
+            "healthpost",
+            "hospital",
+            "pharmacy",
+            "veterinary"
+          ],
+          "rgba(88, 79, 79, 1)",
+          ["school", "college"],
+          "rgba(75, 70, 70, 1)",
+          ["office", "embassy"],
+          "rgba(70, 71, 71, 1)",
+          [
+            "bakery",
+            "bar",
+            "beer",
+            "cafe",
+            "fast_food",
+            "ice_cream",
+            "restaurant"
+          ],
+          "rgba(70, 71, 71, 1)",
+          ["bank", "atm"],
+          "rgba(70, 71, 71, 1)",
+          "lodging",
+          "rgba(70, 71, 71, 1)",
+          ["clothing_store", "grocery", "shop"],
+          "rgba(70, 71, 71, 1)",
+          "rgba(70, 71, 71, 1)"
+        ],
+        "text-halo-color": "rgba(230, 228, 228, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Poi-religion",
+      "type": "symbol",
+      "source": "all_data",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "$type", "Point"], ["in", "class", "religion"]],
+      "layout": {
+        "icon-size": 0.8,
+        "text-font": ["OpenSans"],
+        "text-size": 13,
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
+        "visibility": "visible",
+        "text-anchor": "top",
+        "text-offset": [0, 1],
+        "icon-padding": 20,
+        "icon-optional": false,
+        "text-optional": false,
+        "text-max-width": 8,
+        "text-allow-overlap": false,
+        "icon-image": [
+          "coalesce",
+          ["image", ["get", "subclass"]],
           ["image", "others"]
         ],
         "text-padding": 30
@@ -2619,7 +2900,7 @@
       }
     },
     {
-      "id": "Waterwaylabel-lake-copy",
+      "id": "Waterwaylabel-lake",
       "type": "symbol",
       "source": "all_data",
       "source-layer": "water_name",
@@ -2630,7 +2911,12 @@
         "text-line-height": 1,
         "visibility": "none",
         "text-max-width": 5,
-        "text-field": "{name:latin}{name:nonlatin}",
+        "text-field": [
+          "case",
+          ["has", "name:en"],
+          ["get", "name:en"],
+          ["get", "name:latin"]
+        ],
         "text-size": {"stops": [[14, 8], [15, 12]]},
         "symbol-placement": "point",
         "text-font": ["OpenSans"]
@@ -3372,7 +3658,7 @@
       "type": "line",
       "source": "Boundary-Province",
       "minzoom": 4.5,
-      "maxzoom": 7,
+      "maxzoom": 24,
       "layout": {
         "visibility": "visible",
         "line-join": "bevel",
